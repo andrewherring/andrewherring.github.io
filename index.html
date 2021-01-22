@@ -1,1 +1,382 @@
-Hello World
+<!--This is how you comment in HTML.  This is my first attempt at an academic website from scratch.  I'm following the w3schools documentation which is superb. 14 January, 2020-->
+
+<!DOCTYPE html>
+<html lang="en-US"> <!--search engines and screen readers beware: this page is written in US english-->
+<head> <!--"meta information within" -->
+  <title>Andrew W. Herring</title> 
+  <!--
+    The title of the website is displayed as the text in the tab of the browser
+  -->
+  <!--
+  	Supposedly it's better practice to indent with two spacebars than with tab.  CF Silicon Valley episode. 
+  -->
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!--Set content width for responsiveness-->
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <base target="_blank"><!--Set the default for attribute target to blank-->
+<!--Content begins here-->
+<body>
+  	<header class="headski">
+  	  <div style="display: flex; flex-direction: column; padding: 30px">
+        <div>Andrew W. Herring</div>
+        <a style="font-size: 0.5em; margin-top: 10pt;" href="CV.pdf" target="_blank">CV</a>
+      </div>
+    </header>
+  <!-- <nav>
+    <a href="CV_JAN2020.pdf" target="_blank">CV</a>
+  	<a href="#research">research</a>
+  	<a href="#teaching">teaching</a>
+  	<a href="#notes">notes</a>
+  </nav> -->
+  <!--HOME-->
+  <section class="nextsec" id="home">
+  	<div class="row">
+  	  <div>
+  	  	<p>
+		  I'm a fourth year <a href="https://www.math.uwo.ca/" target="blank">mathematics</a> PhD student at <a href="https://www.uwo.ca/" target="blank">Western University</a>.  <a href="https://www.math.uwo.ca/faculty/hall/" target="blank">Chris Hall</a> is my PhD supervisor.
+		    </p>
+        <p>
+        <b>I'm on the postdoctoral job market!</b>
+        </p>
+    		<p style="text-indent: 40px;">
+    		  My current research is focused on Galois representations which arise in <a href="https://en.wikipedia.org/wiki/Arithmetic_dynamics" target="blank">arithmetic dynamics</a>.  In the past, I studied <a href="https://en.wikipedia.org/wiki/Ramanujan_graph" target="blank">Ramanujan graphs</a>.
+    		</p>
+    		<p style="text-indent: 40px;">
+    		  I grew up in Albuquerque, New Mexico, USA.  When I'm not doing math, I enjoy rock climbing, playing drum set, and cooking.
+    		</p>
+    		<p> If you're a human, feel free to contact me:
+    		  <ul style="margin-left:40px; list-style-type:none">
+    		    <li>Andrew W. Herring</li>
+    			  <li  style="padding-top:3px"> Middlesex College 245</li>
+      			<li  style="padding-top:3px"> Western University</li>
+    		    <li  style="padding-top:3px">London, ON, Canada</li>
+    			  <li  style="padding-top:3px"> aherrin6 "at" uwo "dot" ca</li>
+    		  </ul>
+    		</p>
+  	</div>
+    <!--Headshot-->
+  	<div>
+  	  	<img src="images/bw.jpg" alt="Here is a photo of me." style="width:250px; 
+          height:auto; border: 2px solid black;">
+  	  </div>
+  	</div>
+  </section>
+  <!--RESEARCH-->
+  <section class="nextsec" id="research">
+  	<h1 style="text-align: center;">
+  	  Research
+  	</h1>
+    <div class="floatrow">
+          <p><b>Here is my <a href="research/research_statement_herring.pdf" target="_blank">research statement</b></a>.</p>
+        My research interests include:
+          <ul>
+            <li>arithmetic dynamics</li>
+            <li>arithmetic geometry</li>
+            <li>spectral graph theory</li>
+          </ul>
+      <p style="text-align:center"><i style="font-size: 1.4em;">"Galois representations in arithmetic dynamics?"</i>  You bet!</p>
+      <p style="text-indent: 40px;">Suppose we're given a map f from the projective line over a field K to itself.  Then we can iterate f, and studying the Galois group associated to periodic points leads us to consider the <b>"dynatomic Galois representation"</b>.</p>
+      <p style="text-indent: 40px;"> We might start instead with a fixed initial point P and look at those points which are mapped to P after n-many iterations of f.  On one hand, this collection of all "nth pre-images" is naturally a rooted (at P) tree.  On the other, we generate a tower of Galois extensions of K by adjoining the nth pre-images.  Then the Galois group of the tower acts on the tree: this action is called the <b>"arboreal Galois representation."</b></p>
+       <p>In either case, it's a fascinating (and hard) question to ask about how large the Galois group can be in its codomain.</p>
+       <ul>
+         <li style="margin-bottom: 12pt;">
+           Recently, I've been <a href="https://pdf.sciencedirectassets.com/272332/1-s2.0-S0021869300X01226/1-s2.0-S002186939797304X/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEA8aCXVzLWVhc3QtMSJIMEYCIQCzwTauPU5L5YxjJmRtfZdLh%2F4PoZrovNzC4eEsQsPY4QIhALtQo18yX2NAdf0CTaZ%2F1rbMMARuQ4o7%2FTYfwrPzdTGwKr0DCJf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQAhoMMDU5MDAzNTQ2ODY1IgwApLIIKzXiEaj56w4qkQOthq0rGPgYykEwHmWl5xYNkkyukSRovJwrFL858faa2pIg8FZtrFtYvuSSz%2BQtxpXeyQiUTv0As0jTuPGEqH%2F4FFpejAFzvp4yswp%2BwNdNlGUTZLHpettareUTmqD3I3Rdn0X%2BEF4ije%2FwPq%2Ba3QKHAqMSfhpJYVFPjpJtHWWzCpx6b4ORn8W5muftNqeqv%2F2SwJqqihklFSmn3EALMsTLmwNXTPV51pB3fa0WxGCWj0eBJ97nKV3NgigyYahwOG4kNSdrNa2mHhmtYxPeTTS5cxPQpMMlGmmj5Ayap1Ed5uhLYWJMXUcp1%2F3KD2YO20qcco9HFOxdLUzPktJ4y%2BjlXIW8y8zQL2hkR0xsS1tBzcmS%2BsJfKsnBQB8fVDLWT1V%2Bcb2EemonDdSTYGYoqqX50Cj3Oh6zR8VyGqhPxJW1ZpVOpb6%2BX6SLH0pa3oDjxHof61PtDbjb9TdUvPdTrc%2Bv8QoZkGDtEBLelanY%2Fzh865dkgolp82Dcr3Ao0e5TS7NZy1DoDYjMHMizMNYxmDDFPzCwwoPxBTrqAe5PDcy2S%2F761INVo3DX2nu0XwfTf%2BR%2Bpd8TiFQvf9JvbkB1%2FxkrN2DPgGXG3lpGQk3DfrPiktvC0%2BO63pyY4HEf16VJvJg%2BaKxfxkErs%2BwSa63c86qMzOaOapJRqkRuv1AKiwzQsMnhDNsLE7u2Nr3vLA%2F1LTOA%2Bh45VblwgKxoG1ZkmU1Wqf4YBs7mtr1wUbsk49axghH01NDNcWkooyPIipuur34LmTbYxXEJYulPktcF9GaFP6IeUV3%2FrUVkLO1brL5%2FKHpLhsOD1nLV3sajRUCLkM5aOoceKyg3Yu%2B9mT%2FCZr8igtLRNA%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200116T230924Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTY4TBVCGVF%2F20200116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=fe45d05429afcce2b91c08eee226b6c8c5e71d53a78a5f5ec27fa28e14199855&hash=3df04f4a39538ad703a63c169f1952cdae7733c606c6ddc701b79f88e38d60a0&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S002186939797304X&tid=spdf-1c2a3ae7-4245-43f2-a377-e448164f3f20&sid=32ca11e14df37148d13830f67ac900aaaf60gxrqa&type=client" target="blank">reading</a> about what ramification theory has to say about the size of the image of Galois under the dynatomic representation.
+         </li>
+         <li style="margin-bottom: 12pt;">
+            Silverman's text <a href="https://www.math.brown.edu/~jhs/ADSHome.html" target="blank"><i>Arithmetic of Dynamical Systems</i></a> (2007) is a beautiful introduction to the subject.  
+         </li>
+         <li style="margin-bottom: 12pt;">
+            For a comprehensive survey of the current state of affairs, there's <a href="https://www.ams.org/journals/bull/2019-56-04/S0273-0979-2019-01665-6/S0273-0979-2019-01665-6.pdf" target="blank"><i>Current Trends and Open Problems in Arithmetic Dynamics</i></a> (2019) by Benedetto, Ingram, Jones, Manes, Silverman, and Tucker.
+         </li>
+       </ul>
+    </div>
+    <div class="imgblock">
+         <img src="images/big_vee_smaller.jpg" alt="La Luz trail in the Sandia Mountains">
+          <p>a gratuitous image of La Luz Trail in the <i>Posu gai hoo-oo</i> (<a href="https://en.wikipedia.org/wiki/Sandia_Mountains">Sandia Mountains</a>)</p>
+    </div>
+    <div class="floatrow">
+         <p style="text-align: center;"><i style="font-size: 1.4em">"I thought you said you like Ramanujan graphs..."</i>  I do.</p>
+         <p style="text-indent: 40px;">
+           Ramanujan graphs are (in some precise sense) "optimal expander graphs"-optimally connected, yet sparse.  While Ramanujan graphs are defined by forcing two eigenvalues to be as far apart as possible, the <a href="https://link.springer.com/article/10.1007/BF02126799" target="blank">original constructions</a> came from Cayley graphs of certain arithmetic groups, so they have their origins in number theory.  (On the flip side, <a href="https://projecteuclid.org/euclid.dmj/1336142075" target="blank">Hall, Ellenberg, and Kowalski</a> deduced arithmetic results by observing that a family of graphs has nice expansion properties).
+         </p>
+         <ul style="line-height: 1.4;">
+           <li style="margin-bottom: 12pt;">
+             I wrote <a href="part_II_AWH.pdf">part II</a> of my comprehensive exam on the influential paper <a href="https://annals.math.princeton.edu/2015/182-1/p07"><i>Interlacing Families I: Bipartite Ramanujan Graphs of all Degrees</i></a> (2015) by Marcus, Spielman, and Srivastava in which they show that for a fixed degree of regularity, there are infinitely many Ramanujan graphs of that degree.  A crucial ingredient was using (topological) 2-covers.
+            </li>
+            <li style="margin-bottom: 12pt;">
+              In <a href="https://www.sciencedirect.com/science/article/pii/S0001870817303146" target="blank"><i>Ramanujan Coverings of Graphs</i></a> (2018), Hall, Puder, and Sawin generalized the work of Marcus, et al. by showing that (the spirit of) the same argument goes through upon replacing 2-covers by d-covers for arbitrary d.  To do so, they defined a new combinatorial generating function called the <b>"d-matching polynomial."</b>
+            </li>
+            <li style="margin-bottom: 12pt;">
+              In <a href="https://arxiv.org/abs/1810.05889" target="blank"><i>A New [Combinatorial] Proof of the Commutativity of Matching Polynomials for Cycles</i></a> (2018), Cochran, Groothuis, Rohatgi, Stucky, and I prove a functional equation involving the d-matching polynomial, and give a purely combinatorial proof that the matching polynomials of cycles commute under composition.
+            </li>
+            <li>
+              An important tool in algebraic topology is the categorical equivalence between sets on which the fundamental group acts, and covering spaces.  In my <a href="research/AWH_MS_THESIS.pdf">MS thesis</a> (2016), I carefully wrote down the details of this equivalence in the particular context of graphs.
+            </li>
+         </ul>
+    </div>
+  </section>
+  <!--TEACHING-->
+  <section class="nextsec" id="teaching">
+  	<h1 style="text-align: center;">
+  	  Teaching
+  	</h1>
+    <div class="floatrow">
+      <p><b>Here is my <a href="teaching/teaching_statement_herring.pdf">teaching statement</a>.</b></p>
+      <p><b>Here is a <a href="teaching/evidence_of_teaching_excellence.pdf">summary of my teaching evaluations.</a></b></p>
+    </div>
+    <div class="rightfloatrow">
+        <table style="width: 85%; margin-bottom: 20px; margin: 20px auto;">
+          <tr>
+            <th colspan="4">
+              Western University
+            </th>
+          </tr>
+          <tr>
+            <th>Term</th>
+            <th>Course</th>
+            <th>Role</th>
+            <th>Course Files and Evaluations</th>
+          </tr>
+          <tr>
+            <td rowspan="2">Fall 2020</td>
+            <td><i>Linear Algebra I</i></td>
+            <td>discussion leader</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td><i>Introduction to Abstract Algebra</i></td>
+            <td>TA</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Summer 2020</td>
+            <td><i>Linear Algebra I</i>
+            <td>TA</td>
+            <td> </td>
+            </td>
+          </tr>
+          <tr>
+            <td rowspan="2">Spring 2020</td>
+            <td><a href="https://www.math.uwo.ca/faculty/lemire/teaching/math2120bw20.html"><i>Linear Algebra II</i></a></td>
+            <td>discussion leader</td>
+            <td style="display: flex; justify-content: center; border: 0 none black;">
+              <ul style="margin-left: -5px;">
+                <li><a href="teaching/2120_HW1.pdf">assignment 1</a></li>
+                <li><a href="teaching/2120_HW2.pdf">assignment 2</a></li>
+                <li><a href="teaching/2120_HW3.pdf">assignment 3</a></li>
+              </ul>
+              <ul>
+                <li><a href="teaching/2120_HW4.pdf">assignment 4</a></li>
+                <li><a href="teaching/2120_HW5.pdf">assignment 5</a></li>
+                <li><a href="teaching/TA/math2120_3120_S20.pdf">evaluation</a></li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td> <a href="https://www.math.uwo.ca/faculty/lemire/teaching/math3120bw20.html"><i>Group Theory</i></a></td>
+            <td> TA</td>
+            <td><a href="teaching/TA/math2120_3120_S20.pdf">evaluation</a></td>
+          </tr>
+          <tr>
+            <td>Fall 2019</td>
+            <td><a href="https://www.math.uwo.ca/faculty/adamus/teaching/1000a2019/index.html"><i>First Year Calculus</i></a></td>
+            <td>primary instructor</td>
+            <td style="display: flex; justify-content: center; border: 0 none black;">
+              <ul style="margin-left: -5px;">
+                <li><a href="teaching/calc1000-outline-2019.pdf">syllabus</a></li>
+                <li><a href="teaching/calc1000A_003.pdf">section syllabus</a></li>
+                <li><a href="teaching/calc1000-exercises-2019.pdf">suggested exercises</a></li>
+                <li><a href="teaching/assignment_1.pdf">assignment 1</a></li>
+              </ul>
+              <ul>
+                <li><a href="teaching/assignment_2.pdf">assignment 2</a></li>
+                <li><a href="teaching/final_review.pdf">final review</a></li>
+                <li><a href="teaching/INSTRUCTOR/calc1000A_F19.pdf">evaluations</a></li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>Summer 2019</td>
+            <td><i>Methods of Finite Mathematics</i></td>
+            <td> TA </td>
+            <td><a href="teaching/TA/math1228_sum19.pdf">evaluation</a> </td>
+          </tr>
+          <tr>
+            <td rowspan="2">Spring 2019</td>
+            <td><i>Calculus II for the Mathematical and Physical Sciences</i></td>
+            <td>TA</td>
+            <td><a href="teaching/TA/calc1501B_S19.pdf">evaluation</a></td>
+          </tr>
+          <tr>
+            <td><i>Linear Algebra I</i></td>
+            <td>discussion leader</td>
+            <td><a href="teaching/TA/math1600B_S19.pdf">evaluation</a></td>
+          </tr>
+          <tr>
+            <td rowspan="2">
+              Fall 2018
+            </td>
+            <td>
+              <i>Mathematical Structures</i>
+            </td>
+            <td>TA</td>
+            <td><a href="teaching/TA/math2155A_F18.pdf">evaluation</a></td>
+          </tr>
+          <tr>
+            <td><i>Linear Algebra I</i></td>
+            <td>discussion leader</td>
+            <td><a href="teaching/TA/math1600A_F18.pdf">evaluation</a></td>
+          </tr>
+          <tr>
+            <td rowspan="2">
+              Spring 2018
+            </td>
+            <td><i>Calculus II for the Mathematical Sciences</i></td>
+            <td>TA</td>
+            <td><a href="teaching/TA/calc1501B_S18.pdf">evaluation</a></td>
+          </tr>
+          <tr>
+            <td><i>Elementary Number Theory I</i></td>
+            <td>TA</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Fall 2017</td>
+            <td><i>Fist Year Calculus</i></td>
+            <td>TA</td>
+            <td><a href="teaching/TA/calc1000A_F17.pdf">evaluation</a></td>
+          </tr>
+          </table>
+          <div class="imgblock" style="width: 80%;">
+           <img src="images/ridge_smaller.jpg" alt="La Luz trail in the Sandia Mountains">
+            <p>Albuquerque, New Mexico is down there</p>
+          </div>
+        <table style="width:85%; margin: 20px auto;">
+          <tr>
+            <th colspan="4">University of Wyoming</th>
+          </tr>
+          <tr>
+            <th>Term</th>
+            <th>Course</th>
+            <th>Role</th>
+            <th>Course Files and Evaluations</th>
+          </tr>
+          <tr>
+            <td>Spring 2017</td>
+            <td><i>Multi-variable Calculus</i></td>
+            <td>discussion leader</td>
+            <td><ul>
+              <li><a href="teaching/TA/2210_S17/2210_21_S17.pdf">evaluations--sec 21</a></li>
+              <li><a href="teaching/TA/2210_S17/2210_22_S17.pdf">evaluations--sec 22</a></li>
+              <li><a href="teaching/TA/2210_S17/2210_25_S17.pdf">evaluations--sec 25</a></li>
+            </ul></td>
+          </tr>
+           <tr>
+            <td>Fall 2016</td>
+            <td><i>Multi-variable Calculus</i></td>
+            <td>discussion leader</td>
+            <td><ul>
+              <li><a href="teaching/TA/2210_F16/2210_21_F16.pdf">evaluations--sec 21</a></li>
+              <li><a href="teaching/TA/2210_F16/2210_22_F16.pdf">evaluations--sec 22</a></li>
+              <li><a href="teaching/TA/2210_F16/2210_25_F16.pdf">evaluations--sec 25</a></li>
+            </ul></td>
+          </tr>
+          <tr>
+            <td>Summer 2016</td>
+            <td><i>College Algebra</i></td>
+            <td>primary instructor</td>
+            <td><ul>
+              <li><a href="teaching/1400syllabus.pdf">syllabus</a></li>
+              <li><a href="teaching/INSTRUCTOR/1400_Sum16.pdf">evaluations</a></li>
+            </ul></td>
+          </tr>
+          <tr>
+            <td>Spring 2016</td>
+            <td><i>Calculus II</i></td>
+            <td>primary instructor</td>
+            <td><ul>
+              <li><a href="teaching/Syllabus_2205-01.pdf">syllabus</a></li>
+              <li><a href="teaching/INSTRUCTOR/2205_S16.pdf">evaluations</a></li>
+            </ul></td>
+          </tr>
+          <tr>
+            <td>Fall 2015</td>
+            <td><i>Calculus I</i></td>
+            <td>primary instructor</td>
+            <td><ul>
+              <li><a href="teaching/2200syllabus.pdf">syllabus</a></li>
+              <li><a href="teaching/INSTRUCTOR/2200_F15.pdf">evaluations</a></li>
+            </ul></td>
+          </tr>
+          <tr>
+          <tr>
+            <td>Spring 2015</td>
+            <td><i>Multi-variable Calculus</i></td>
+            <td>discussion leader</td>
+            <td><ul>
+              <li><a href="teaching/TA/2210_S15/2210_22_S15.pdf">evaluations--sec 22</a></li>
+              <li><a href="teaching/TA/2210_S15/2210_24_S15.pdf">evaluations--sec 24</a></li>
+              <li><a href="teaching/TA/2210_S15/2210_25_S15.pdf">evaluations--sec 25</a></li>
+            </ul></td>
+          </tr>
+          <tr>
+            <td>Fall 2014</td>
+            <td><i>Multi-variable Calculus</i></td>
+            <td>discussion leader</td>
+            <td><ul>
+              <li><a href="teaching/TA/2210_F14/2210_20_F14.pdf">evaluations--sec 20</a></li>
+              <li><a href="teaching/TA/2210_F14/2210_22_F14.pdf">evaluations--sec 22</a></li>
+              <li><a href="teaching/TA/2210_F14/2210_25_F14.pdf">evaluations--sec 25</a></li>
+            </ul></td>
+          </tr>
+          <th colspan="4">University of New Mexico</th>
+          </tr>
+          <tr>
+            <td>Summer 2014</td>
+            <td><i>Trigonometry</i></td>
+            <td>primary instructor</td>
+            <td>
+              <a href="teaching/MATH123.001Syllabus.pdf">syllabus</a>
+            </td>
+          </tr>
+          <tr>
+            <td>Spring 2014</td>
+            <td><i>Survey of Mathematics</i></td>
+            <td>primary instructor</td>
+            <td><a href="teaching/129-002_Syllabus_S'14.pdf">syllabus</a></td>
+          </tr>
+          <tr>
+            <td>Fall 2013</td>
+            <td><i>Multi-variable Calculus</i></td>
+            <td>discussion leader</td>
+            <td></td>
+          </tr>
+
+        </table>
+      <!--Solid of revolution-->
+    </div>
+  </section>
+  <!--NOTES-->
+  <section class="nextsec" id="notes">
+  	<h1 style="text-align: center;">
+  	  Talks
+  	</h1>
+    <div class="floatrow">
+      <ul>
+        <li style="margin-bottom: 12pt;">
+          Slides from my part II comprehensive exam defense: <a href="notes/MSS_TALK.pdf"><i>"Ramanujan Graphs and Interlacing Families"</i></a> (March 2019).
+        </li>
+        <li style="margin-bottom: 12pt;">
+          Slides from my talk in the Western Topological Data Analysis Learning Seminar: <a href="notes/MAPPER_TALK.pdf"><i>"The Mapper Algorithm"</i></a> (June 2018). 
+        </li>
+        <li style="margin-bottom: 12pt;">
+          In a course on expander graphs, I gave a final presentation: <i>"Determinant Formula for the Ihara Zeta Function of a Graph"</i> (January 2018).  These are the <a href="notes/Ihara_zeta.pdf">notes</a> I wrote to prepare.
+        </li>
+        <li style="margin-bottom: 12pt;">
+          Slides from my MS thesis defense: <a href="notes/MS_DEFENSE.pdf"><i>"Groups and Covers of Graphs"</i></a> (December 2016).
+        </li>
+      </ul>
+    </div>
+  </section>
+</body>
+</html>
