@@ -1,0 +1,96 @@
+:root{
+  --turq: #00ccf1;
+}
+
+body{
+  font-family: 'Lato';
+  font-weight: 400;
+}
+
+
+.buttonbar{
+  border: solid 2px black;
+  width:95%;
+  height:20vw;
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+
+.tbutton{
+  background: url("./images/big-vee-gray.jpg") center center;
+  background-size: 70%;
+  border: none;
+  color: white;
+  padding: 0px 0px 0px 0px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin: 0px 0px 0px 0px;
+  cursor: pointer;
+  font-size: 6vw;
+  width: 100%;
+  height: 15vw;
+  font-family: 'Lato';
+  font-weight: 400;
+}
+
+
+.lbutton{
+  background: url("./images/web-math-dark.png") center center;
+  opacity: 0.6;
+  background-size: 50%;
+  border: none;
+  color: white;
+  padding: 0px 0px 0px 0px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin: 0px 0px 0px 0px;
+  cursor: pointer;
+  font-family: 'Lato';
+  font-weight: 400;
+  font-size: 3.5vw;
+  width: 50%;
+  height: 5vw;
+  float: left;
+}
+
+.rbutton{
+  background: url("./images/hashcat-gray.png") top center;
+  opacity: 0.6;
+  background-size: 100%;
+  border: none;
+  color: white;
+  padding: 0px 0px 0px 0px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin: 0px 0px 0px 0px;
+  cursor: pointer;
+  font-family: 'Lato';
+  font-weight: 400;
+  font-size: 3.5vw;
+  width: 50%;
+  height: 5vw;
+}
+
+.homerow{
+  display: block;
+  margin: 2em auto;
+  width:95%;
+  justify-content: space-between;
+  line-height: 1.4;
+}
+
+a:link{
+  color: black;
+}
+
+a:visited{
+  color: black;
+}
+
+a:hover{
+  color: var(--turq);
+}

@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>ANDREW W. HERRING, PH.D.</title>
+    <base target="_blank" rel="noopener noreferrer">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="cyber.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src='../js/buttonProperties.js'></script>
+
+    <!-- import from cdn highlight.js and the corresponding Monokai style sheet -->
+    <link rel="stylesheet" 
+      href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/monokai-sublime.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"></script>
+
+    <script>hljs.highlightAll();</script>
+
+  </head>
+<body>
+
+  <!-- ******************************************** -->
+  <!-- button bar -->
+  <!-- ******************************************** -->
+  <div class="buttonbar">
+
+    <!-- top button -->
+    <button id="tbttn" class="tbutton">
+    </button>
+    
+    <!-- left button -->
+    <button id="lbttn" class="lbutton">
+    </button>
+
+    <!-- right button -->
+    <button id="rbttn" class="rbutton">
+    </button>
+    
+  </div>
+
+  <!-- ******************************************** -->
+  <!-- intro section -->
+  <!-- ******************************************** -->
+  <div class="homerow">
+    <div class="mininav">
+      <button class="tooltip" id="mnbttn1">Home
+        <span class="tooltiptext">andrewherring.github.io</span>
+      </button>
+      <!-- <button class="tooltip" id="mnbttn2">my thesis
+        <span class="tooltiptext">genus-bounds-for-some-dynatomic-modular-curves.pdf</span>
+      </button> -->
+    </div>
+<script>
+  $("#mnbttn1").on({
+    click: () => {
+      location.assign("../index.html");
+    },
+    mouseenter: () => {
+      $("#mnbttn1").css({"color": "var(--turq)", "opacity": "1"});
+    },
+    mouseleave: () => {
+      $("#mnbttn1").css({"color": "white", "opacity": "0.6"});
+    }
+  });
+
+
+  // const mNBttns = [];
+
+  // for (i=0; i < numMNBttns; i++){
+  //   mNBttns[i] = "#" + $(".mininav").children()[i].id;
+  // };
+
+  // for ( let b of mNBttns ){
+  //   $(b).on({
+  //     mouseenter: () => {
+  //     $(b).css({"color": "var(--turq)", "opacity": "1"});
+  //     },
+  //     mouseleave: () => {
+  //       $(b).css({"color": "white", "opacity": "0.8"});
+  //     }
+  //   })
+  // }
+
+</script>
+    <h1>This is the cyber landing section</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima earum quidem eveniet eum, molestiae repudiandae totam expedita eius repellendus neque dolorum perferendis! Quam nisi dolor provident id! Corrupti, harum, voluptas!</p>
+    <p>Dolorum cumque id tempore dolore maiores sed ducimus, eveniet ea repudiandae, quaerat ex, cupiditate! Id, iusto accusantium unde, obcaecati doloremque ipsum voluptatum quasi modi earum asperiores, inventore, voluptatibus minus provident.</p>
+    <p>Repudiandae debitis sequi cum qui aperiam, excepturi rerum, consequuntur nemo dignissimos assumenda, vero maxime dicta quasi officiis saepe quaerat obcaecati perferendis! Dolores atque, unde omnis obcaecati, accusantium explicabo pariatur reprehenderit.</p>
+    <p>Accusamus ea temporibus laboriosam deserunt cum dolore provident iure at quo ex eaque ad eveniet incidunt quam, quis porro aliquid sapiente quisquam quos ducimus repudiandae dolores aperiam? Quo qui, ad.</p>
+  </div>
+  <div class="sectionrow">
+    <h1 class="sectionheading">Next Section</h1>
+
+    <div id="vmware" class="revealbox">
+      <p id="fvmware" class="flip">Signing VMware modules</p>
+      <div id="pvmware" class="panel">
+        <div class="rbdate"><i>7 January, 2022</i></div>
+          <p style="text-indent: 0">I use <code class="il"><a href="https://www.kali.org/">Kali-Linux-2021.4</a></code> as a virtual operating system on <a href="https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html">VMware Workstation Player 16</a>. As I learned, there will be an issue booting Kali on VMWare Workstation Player 16 on a Linux host which boots from UEFI with secure boot enabled: 
+          </p>
+
+          <p>Launching VMWare Workstation Player 16 opens the following window:</p>
+          <img src="./images/vmware1.png" alt="VMware Workstation Player 16 launch screen" class="center">
+          <p>Now, to launch Kali Linux inside the virtual machine, we double click on the "kali" icon on the left. The operating system begins to start up, but we quickly get an error:</p>
+          <img style="width: 20%" src="./images/vmware2.png" alt="VMware Workstation Player 16 error message 1" class="center">
+          <p>On clicking "ok", a new error is displayed: </p>
+          <img style="width: 20%" src="./images/vmware3.png" alt="VMware Workstation Player 16 error message 2" class="center">
+          <p>We click "ok" on this error dialogue, and then VMware immediately closes.</p>
+          <p>According to this <a href="https://kb.vmware.com/s/article/2146460">post</a> the issue is that on Linux hosts with secure boot enabled, unsigned drivers/modules cannot be loaded. Thus, the solution is to sign the drivers using keys generated by OpenSSL. Furthermore any time VMware updates, the updated modules need to be signed anew. </p>
+
+          <p>Since this signing of modules needs to be exectued somewhat regularly, I wrote a short Bash script (<code class="il"><a  href="./files/sign-modules.txt">sign-modules.sh</a></code>) for this purpose:</p>
+
+          <pre class="codescreen" id="module-signing"><code class="bash">
+          #!/bin/bash
+
+          # this script signs the modules needed to use VMWare Player 16
+          # following the steps at https://kb.vmware.com/s/article/2146460
+
+          # if not running as root, exit script and print error message
+          if (( $EUID != 0 )); then
+            echo "Error: Root permissions required---run as root."
+            exit
+          else
+            
+            # date in MM-DD-YYYY format
+            d=`date +%m-%d-%Y`
+
+            # create name for directory and key files; move there
+            name=mok-$d
+            mkdir $name
+            cd $name
+
+            # generate keys using openssl
+            openssl req -new -x509 -newkey rsa:2048
+             -keyout $name.priv -outform DER -out $name.der 
+             -nodes -days 36500 -subj "/CN=VMware/"
+
+            # sign module vmmon using generated keys
+            /usr/src/linux-headers-`uname -r`/scripts/sign-file sha256 
+            ./$name.priv ./$name.der $(modinfo -n vmmon)
+
+            # sign module vmnet using generated keys
+            /usr/src/linux-headers-`uname -r`/scripts/sign-file sha256 
+            ./$name.priv ./$name.der $(modinfo -n vmnet)
+
+            # import the keys to mokutil 
+            # (you wil be prompted for a password for the MOK enrollment)
+            mokutil --import $name.der
+
+            # one last step: reboot and follow steps
+            # from UEFI prompt to complete MOK enrollment
+            reboot
+          fi
+
+          </code></pre>
+
+          <p>On running <code class="il">sign-modules.sh</code>, we are prompted for a password for the MOK enrollment utility. After inputting the password, the host machine reboots. During reboot, we are directed to the MOK enrollment utility screen. We enroll the newly generated keys with MOK by supplying the password we set prior to reboot. When the host machine finishes rebooting, we fire up VMware and try again. Et voil&agrave --- Kali Linux:</p>
+
+          <img src="./images/vmware4.png" alt="VMware Workstation Player 16 has successfully booted Kali Linux!" class="center">
+
+      </div>
+    </div>  
+
+
+
+
+
+
+    <!-- ******************************************** -->
+    <!-- WEB DEV CODE SAMPLES -->
+    <!-- ******************************************** -->
+    <div id="webdev" class="revealbox">
+      <p id="fwebdev" class="flip">Code samples from this very website</p>
+      <div id="pwebdev" class="panel">
+        <div class="rbdate"><i>6 February, 2022</i></div>
+          <p style="text-indent: 0">I wrote this website from scratch using (mostly vanilla) <code class="il">HTML</code>, <code class="il">CSS</code>, and <code class="il">JavaScript</code>. Originally I planned to use pure <code class="il">HTML</code> and <code class="il">CSS</code>. I realized pretty quickly however, that to implement the functionalities I wanted, pure <code class="il">HTML</code> and <code class="il">CSS</code> were insufficient. So in early Januaury 2022 I started learning <code class="il">JavaScript</code>. (For this self-learning project, I followed W3Schools' tutorials for <code class="il"><a href="https://www.w3schools.com/html/default.asp">HTML</a></code>, <code class="il"><a href="https://www.w3schools.com/css/default.asp">CSS</a></code>, <code class="il"><a href="https://www.w3schools.com/js/default.asp">JavaScript</a></code>, and <code class="il"><a href="https://www.w3schools.com/jquery/default.asp">jQuery</a></code>, and also frequently consulted <a href="https://developer.mozilla.org/en-US/docs/Learn">MDN Web Docs</a>. )</p>
+
+          <p>Aside from a practical need, I believe that in order to break a system, it is important to first understand how the system was built and how it should function in the intended use case. Thus, given the extreme ubiquity of <code class="il">JavaScript</code> across the web and in mobile applications, I think that it is valuable for an aspiring hacker to understand the basics of <code class="il">JavaScript</code> from a development point of view.</p>
+
+          <p></p>
+
+          <p>Here I will show some code snippets which make this website behave as it does:</p>
+
+
+          <!-- ******************************************** -->
+          <!-- top button bar demo -->
+          <!-- ******************************************** -->
+          <h3 style="text-indent:0">Top Button Bar</h3>
+
+          <p>Each of the buttons in the "navigation bar" at the top of this page has a certain behavior when it is clicked, when a mouse enters it, and when a mouse leaves it. This website has three main pages:
+
+          <ul>
+            <li><code class="il"><a href="https://andrewherring.github.io">andrewherring.github.io</a></code></li>
+            <li><code class="il"><a href="https://andrewherring.github.io/maths.html">andrewherring.github.io/maths.html</a></code></li>
+            <li><code class="il"><a href="https://andrewherring.github.io/cyber.html">andrewherring.github.io/cyber.html</a></code></li>
+          </ul>
+
+          Each of the top buttons has the same response to a click
+          regardless of which of the above three pages the browser is pointed to.</p>
+
+          <p>The same is not true for the mouse enter and mouse leave events. For example, the response to a mouse entering the "CYBER SECURITY" button depends on whether the browser is pointed to <code class="il"><a href="https://andrewherring.github.io/maths.html">./maths.html</a></code> or <code class="il"><a href="https://andrewherring.github.io/cyber.html">./cyber.html</a></code>. I could have written a separate <code class="il">JavaScript</code> file for each of the three main pages, but the mathematician in me prefers maximum generality and robustness. With the current code, it's easy to replace certain parameters in a single file (<code class="il">buttonProperties.js</code>) for future development projects.</p>
+
+
+          <!-- ******************************************** -->
+          <!-- top bar code screeens nav -->
+          <!-- ******************************************** -->
+          <div id="csnavTB" class="btn-group">
+            <button id="csTBbttn0">buttonProperties.js</button>
+            <button id="csTBbttn1">buttonActions.js</button>
+            <button id="csTBbttn2">cyber.css</button>
+            <button id="csTBbttn3">cyber.html</button>
+          </div>
+
+
+          <!-- ******************************************** -->
+          <!-- buttonProperties.js -->
+          <!-- ******************************************** -->
+          <pre class="codescreen" id="csTBscr0"><code class="javascript">
+          // colors (active/inactive)
+          const colors = {a: "var(--turq)", i: "white" };
+
+          // opacities (active/inactive)
+          const opacities = {a: "1", i: "0.6" };
+
+          // top button text (active/inactive)
+          const tText = {a: "R&Eacute;SUM&Eacute;", i: "ANDREW W. HERRING, PH.D." };
+
+          // left button text (active/inactive)
+          const lText = {a: "MATHEMATICS", i: "MATH(S)" };
+
+          // right button text (active/inactive)
+          const rText = {a: "CYBER SECURITY", i: "CYBER" };
+
+          // create an object of objects with all of the button texts
+          const buttonsText = {};
+            buttonsText.tbttn = tText;
+            buttonsText.lbttn = lText;
+            buttonsText.rbttn = rText;
+
+          // array of all button ids
+          buttonIds = Object.getOwnPropertyNames(buttonsText);
+
+          // create an object with paths for click events
+          // (likely will have to change this once uploaded)
+          const buttonClickPaths = {};
+            buttonClickPaths.tbttn = '/home/andrew/Documents/
+            website2/files/resume.pdf';
+            buttonClickPaths.lbttn = '/home/andrew/Documents/
+            website2/maths/maths.html';
+            buttonClickPaths.rbttn = '/home/andrew/Documents/
+            website2/cyber/cyber.html';
+          </code></pre>
+
+          <!-- ******************************************** -->
+          <!-- buttonActions.js -->
+          <!-- ******************************************** -->
+          <pre class="codescreen" id="csTBscr1"><code class="javascript">
+          $(document).ready(function(){
+
+          // ******************************************************************
+          // **********WHEN BROWSER IS POINTED TO INDEX.HTML*******************
+          // ******************************************************************
+
+          if (location.pathname == '/home/andrew/Documents/
+          website2/index.html'){
+
+            // set the current button to top button
+            const currentButton = "tbttn";
+
+            // proper format for jQuery selector
+            const cB = "#" + currentButton;
+
+            // duplicate the array buttonIds (from buttonProperties.js)
+            const nonCurrentButtons = [];
+            for (i=0; i < buttonIds.length; i++){
+              nonCurrentButtons[i] = buttonIds[i]
+            };
+
+            // then remove the current button to obtain nonCurrentButtons
+            for (i=0; i < nonCurrentButtons.length; i++){
+              if ( nonCurrentButtons[i] == currentButton ) {
+              nonCurrentButtons.splice(i,1);
+              };
+            };
+
+            // set text for current button
+            $(cB).text(buttonsText[currentButton].i);
+
+            // current button event handlers
+            $(cB).on({
+              click: () => {
+                location.assign(buttonClickPaths[currentButton]);
+              },
+              mouseenter: () => {
+                $(cB).css({"color":colors.a }).html(buttonsText[currentButton].a);
+              },
+              mouseleave: () => {
+                $(cB).css({"color":colors.i}).html(buttonsText[currentButton].i);
+              }
+            });
+
+            // loop over non-current buttons
+            for (let b of nonCurrentButtons){
+
+              // proper format for jQuery selector
+              const nCB = "#" + b;
+
+              // set text for non-current buttons
+              $(nCB).text(buttonsText[b].i);
+
+              // non-current button event handlers
+              $(nCB).on({
+                click: () => {
+                  location.assign(buttonClickPaths[b]);
+                },
+                mouseenter: () => {
+                  $(nCB).css({"color":colors.a, "opacity":opacities.a })
+                  .html(buttonsText[b].a);
+                },
+                mouseleave: () => {
+                  $(nCB).css({"color":colors.i, "opacity":opacities.i })
+                  .html(buttonsText[b].i);
+                }
+              });
+            };
+          } 
+
+
+          // ******************************************************************
+          // **********WHEN BROWSER IS POINTED TO MATHS.HTML*******************
+          // ******************************************************************
+
+          else if (location.pathname == '/home/andrew/Documents/
+          website2/maths/maths.html'){
+
+            // set the current button to left button
+            const currentButton = "lbttn"; 
+
+            // proper format for jQuery selector
+            const cB = "#" + currentButton;
+
+            // set text for current button
+            $(cB).text(buttonsText[currentButton].a);
+
+            // duplicate the array buttonIds
+            const nonCurrentButtons = [];
+            for (i=0; i < buttonIds.length; i++){
+              nonCurrentButtons[i] = buttonIds[i]
+            };
+
+            // then remove the current button to obtain nonCurrentButtons
+            for (i=0; i < nonCurrentButtons.length; i++){
+              if ( nonCurrentButtons[i] == currentButton ) {
+              nonCurrentButtons.splice(i,1);
+              }
+            };
+
+            // loop over non-current buttons
+            for (let b of nonCurrentButtons){
+              
+              // proper format for jQuery selector
+              const nCB = "#" + b;
+
+              // set text for non-current buttons
+              $(nCB).text(buttonsText[b].i);
+
+              // all button event handlers
+              $(nCB).on({
+                click: () => {
+                  location.assign(buttonClickPaths[b]);
+                },
+                mouseenter: () => {
+                  $(nCB).css({"color":colors.a, "opacity":opacities.a })
+                  .html(buttonsText[b].a);
+                  $(cB).css({"color":colors.i, "opacity":opacities.i });
+                },
+                mouseleave: () => {
+                  $(nCB).css({"color":colors.i, "opacity":opacities.i })
+                  .html(buttonsText[b].i);
+                  $(cB).css({"color":colors.a, "opacity":opacities.a })
+                  .html(buttonsText[currentButton].a);
+                }
+              });
+            };
+          } 
+
+
+          // ******************************************************************
+          // **********WHEN BROWSER IS POINTED TO CYBER.HTML*******************
+          // ******************************************************************
+
+          else if (location.pathname == '/home/andrew/Documents/
+          website2/cyber/cyber.html'){
+
+            // set the current button to right button
+            const currentButton = "rbttn"; 
+
+            // proper format for jQuery selector
+            const cB = "#" + currentButton;
+
+            // set text for current button
+            $(cB).text(buttonsText[currentButton].a);
+
+            // duplicate the array buttonIds
+            const nonCurrentButtons = [];
+            for (i=0; i < buttonIds.length; i++){
+              nonCurrentButtons[i] = buttonIds[i]
+            };
+
+            // then remove the current button to obtain nonCurrentButtons
+            for (i=0; i < nonCurrentButtons.length; i++){
+              if ( nonCurrentButtons[i] == currentButton ) {
+              nonCurrentButtons.splice(i,1);
+              }
+            };
+
+            // loop over non-current buttons
+            for (let b of nonCurrentButtons){
+              
+              // proper format for jQuery selector
+              const nCB = "#" + b;
+
+              // set text for non-current buttons
+              $(nCB).text(buttonsText[b].i);
+
+              // all button event handlers
+              $(nCB).on({
+                click: () => {
+                  location.assign(buttonClickPaths[b]);
+                },
+                mouseenter: () => {
+                  $(nCB).css({"color":colors.a, "opacity":opacities.a })
+                  .html(buttonsText[b].a);
+                  $(cB).css({"color":colors.i, "opacity":opacities.i });
+                },
+                mouseleave: () => {
+                  $(nCB).css({"color":colors.i, "opacity":opacities.i })
+                  .html(buttonsText[b].i);
+                  $(cB).css({"color":colors.a, "opacity":opacities.a })
+                  .html(buttonsText[currentButton].a);
+                }
+              });
+            };
+
+          }
+        }); 
+          </code></pre>
+
+          <!-- ******************************************** -->
+          <!-- cyber.css (fragment) -->
+          <!-- ******************************************** -->
+          <pre class="codescreen" id="csTBscr2"><code class="css">
+
+            :root {
+              /* turquoise */
+              --turq: rgb(0, 204, 241);
+            }
+
+            .buttonbar{
+              border: solid 2px black;
+              width:95%;
+              height: 20vw;
+              display: block;
+              margin-left: auto;
+              margin-right: auto
+            }
+
+            .tbutton{
+              background: url("./images/big-vee-gray.jpg") center center;
+              opacity: 0.6;
+              background-size: 70%;
+              border: none;
+              color: white;
+              padding: 0px 0px 0px 0px;
+              text-align: center;
+              text-decoration: none;
+              display: block;
+              margin: 0px 0px 0px 0px;
+              cursor: pointer;
+              font-size: 6vw;
+              width: 100%;
+              height: 15vw;
+            }
+
+
+            .lbutton{
+              background: url("./images/web-math-dark.png") center center;
+              opacity: 0.6;
+              background-size: 50%;
+              border: none;
+              color: white;
+              padding: 0px 0px 0px 0px;
+              text-align: center;
+              text-decoration: none;
+              display: block;
+              margin: 0px 0px 0px 0px;
+              cursor: pointer;
+              font-size: 3.5vw;
+              width: 50%;
+              height: 5vw;
+              float: left;
+            }
+
+            .rbutton{
+              background: url("./images/hashcat-gray.png") top center;
+              opacity: 1;
+              background-size: 100%;
+              border: none;
+              color: var(--turq);
+              padding: 0px 0px 0px 0px;
+              text-align: center;
+              text-decoration: none;
+              display: block;
+              margin: 0px 0px 0px 0px;
+              cursor: pointer;
+              font-size: 3.5vw;
+              width: 50%;
+              height: 5vw;
+            }
+          </code></pre>
+
+          <!-- ******************************************** -->
+          <!-- cyber.html (fragment) -->
+          <!-- ******************************************** -->
+          <pre class="codescreen" id="csTBscr3"><code class="html">
+          &lt;!-- ******************************************** --&gt;
+          &lt;!-- button bar --&gt;
+          &lt;!-- ******************************************** --&gt;
+          &lt;div class="buttonbar"&gt;
+
+            &lt;!-- top button --&gt;
+            &lt;button id="tbttn" class="tbutton"&gt;
+            &lt;/button&gt;
+            
+            &lt;!-- left button --&gt;
+            &lt;button id="lbttn" class="lbutton"&gt;
+            &lt;/button&gt;
+
+            &lt;!-- right button --&gt;
+            &lt;button id="rbttn" class="rbutton"&gt;
+            &lt;/button&gt;
+            
+          &lt;/div&gt;
+
+  
+          </code></pre>
+
+          <!-- ******************************************** -->
+          <!-- reveal box demo -->
+          <!-- ******************************************** -->
+          <h3 style="text-indent:0">Reveal Boxes</h3>
+          <p>Each post in this section is presented in a "reveal box". Each reveal box consists of a title bar which, once clicked, displays a panel containing the content of the post. In the language of <code class="il">CSS</code>, the tite bars are elements of the class <code class="il">p.flip</code> and the content panel of each post is an element with class <code class="il">div.panel</code>. </p>
+
+          <!-- ******************************************** -->
+          <!-- reveal box code screens nav -->
+          <!-- ******************************************** -->
+          <div id="csnavRB" class="btn-group">
+            <button id="csRBbttn0">flipsAndPanels.js</button>
+            <button id="csRBbttn1">cyber.css</button>
+            <button id="csRBbttn2">cyber.html</button>
+          </div>
+
+
+          <!-- ******************************************** -->
+          <!-- flipsAndPanels.js -->
+          <!-- ******************************************** -->
+          <pre class="codescreen" id="csRBscr0"><code class="javascript">
+
+          const panels = [];
+
+          const flips = [];
+
+          const revealBoxes = [];
+
+          // find the number of posts = number of revealboxes
+          // = number of panels = number of flips
+          const numPosts = $(".panel").length; 
+
+          // create arrays of ids for reveal boxes, panels, and flips
+          for ( i=0; i < numPosts; i++ ){
+            panels[i] = $(".panel")[i].id;
+            flips[i] = $(".flip")[i].id;
+            revealBoxes[i] = $(".revealbox")[i].id;
+          };
+
+          const posts= {};
+
+          // create an object (posts) whose properties are 
+          // ids of revealboxes, and for a given property x,
+          // posts.x is an array of ids for the respective 
+          // flip and panel elements which are chidlren of 
+          // revealbox x
+          for (i=0; i < numPosts ; i++){
+            posts[revealBoxes[i]]=[flips[i], panels[i]];
+          };
+
+          // for each post,
+          for (let p in posts){
+
+            // string formatting ids of (child)
+            // flips and panels for jQuery
+            const jqf = "#" + posts[p][0];
+            const jqp = "#" + posts[p][1];
+
+            // click on (child) flip to toggle (child) panel
+            $(jqf).click( () => {
+              $(jqp).toggle();
+            });
+          };
+
+
+          </code></pre>
+
+          <!-- ******************************************** -->
+          <!-- cyber.css (fragment) -->
+          <!-- ******************************************** -->
+          <pre class="codescreen" id="csRBscr1"><code class="css">
+
+          div.panel, p.flip{
+            line-height: 1.5;
+            margin:auto;
+            padding:5px;
+            text-align:center;
+            border:solid 1.5px var(--turq);
+            color:white;
+            border-radius:3px;
+          }
+
+          div.panel{
+            display:none;
+            background:black;
+            font-size:16px;
+            text-align: left;
+            padding:12px;
+          }
+
+          p.flip{
+            cursor:pointer;
+            background:black;
+            font-size: 24px;
+          }
+
+          div.panel p{
+            text-indent: 2.5%;
+          }
+
+          div.panel a:link{
+            color: white;
+          }
+
+          div.panel a:visited{
+            color: white;
+          }
+
+          div.panel a:hover{
+            color: var(--turq);
+          }
+
+          div.revealbox{
+            content: " ";
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+          }
+
+          div.rbdate{
+            font-size: 1.5vw;
+            text-align: right;
+            padding-right: 10px;
+          }
+          </code></pre>
+
+          <!-- ******************************************** -->
+          <!-- cyber.html (fragment) -->
+          <!-- ******************************************** -->
+          <pre class="codescreen" id="csRBscr2"><code class="html">
+
+            &lt;div id="shadow" class="revealbox"&gt;
+              &lt;p id="fshadow" class="flip"&gt;Understanding 
+                &lt;code class=il&gt;/etc/shadow&lt;/code&gt;&lt;/p&gt;
+              &lt;div id="pshadow" class="panel"&gt;
+              &lt;div class="rbdate"&gt;&lt;i&gt;8 December, 2021&lt;/i&gt;&lt;/div&gt;
+                &lt;!-- content goes here --&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+
+          </code></pre>
+
+          <!-- ******************************************** -->
+          <!-- code screens demo -->
+          <!-- ******************************************** -->
+          <h3 style="text-indent:0">Code Screens</h3>
+          <p>I also wrote the <code class="il">JavaScript</code> to generate the "tabbed code screens" used in this post for displaying source code in the browser. To make the code pretty, I used <code class="il"><a href="https://highlightjs.org/">highlight.js</a></code> with the theme <code class="il">styles/monokai-sublime.min.css</code> styled after the Monokai color scheme for Sublime Text 3.</p>
+
+          <!-- ******************************************** -->
+          <!-- code screens nav bar -->
+          <!-- ******************************************** -->
+          <div class="btn-group" id="csnavCS">
+            <button id="csCSbttn0" >codeScreenTabs.js</button>
+            <button id="csCSbttn1" >cyber.css</button>
+            <button id="csCSbttn2" >cyber.html</button>
+          </div>
+
+          <!-- ******************************************** -->
+          <!-- codeScreenTabs.js -->
+          <!-- ******************************************** -->
+          <pre class="codescreen" id="csCSscr0"><code class="javascript">
+          $(document).ready(function(){
+
+          // set current and non-current button colors
+          const buttonColors = {};
+          buttonColors.c = "var( --code-gray )";
+          buttonColors.nc = "var( --st3-blck )";
+
+          // number of code screen objects
+          const numCodeScreens = $(".btn-group").length;
+
+          // for each code screen object
+          for (i=0; i < numCodeScreens; i++){
+
+            // find the nav buttons for that code screen object
+            const navButtons = $(".btn-group")[i]
+              .children;
+
+            // find the number of nav buttons for that code screen object
+            const numButtons = navButtons.length;
+
+            // array of ids of nav buttons for that code screen object
+            const navButtonIds = [];
+
+            for (j=0; j < numButtons; j++){
+              navButtonIds[j] = "#" + navButtons[j].id;
+            };
+
+            // set the first nav button to have the "current" color
+            $(navButtonIds[0]).css("background-color",
+              buttonColors.c);
+
+            // create an object with properties nav button ids,
+            // and whose value for a given property is the id
+            // of the corresponding code screen
+            const codeContentIds = {};
+
+            for ( let b of navButtonIds ){
+              codeContentIds[b] = b.replace("bttn","scr");
+            };
+
+            // set default behavior for each code screen
+            // object: all code screens but the first
+            // are hidden by default   
+            for (k=1; k < numButtons; k++){
+              $(codeContentIds[navButtonIds[k]]).hide();
+            };
+
+            // define the click actions 
+            for ( let bb of navButtonIds ){
+
+              $(bb).click( () => {
+
+                // click on a nav button to show the corresponding 
+                // code screen, and then set the clicked button to have 
+                // "current" color
+                $(codeContentIds[bb]).show();
+                $(bb).css("background-color", buttonColors.c);
+
+                // for each button which was NOT clicked, hide the 
+                // corresponding code screen, and set the background
+                // color of that button to "non-current"
+                for ( let bbp of navButtonIds ){
+                  if ( !( bbp == bb ) ){
+                    $(codeContentIds[bbp]).hide();
+                    $(bbp).css("background-color", buttonColors.nc);
+                  }
+                }
+              })
+            };
+          };
+        });
+
+          </code></pre>
+
+          <!-- ******************************************** -->
+          <!-- cyber.css (fragment) -->
+          <!-- ******************************************** -->
+          <pre class="codescreen" id="csCSscr1"><code class="css">
+          :root {
+            /* turquoise */
+            --turq: rgb(0, 204, 241);
+
+            /* Sublime Text 3 Monokai background black*/
+            --st3-blck: #282923;
+
+            /* a nice gray */
+            --code-gray: #696969;
+          }
+
+          pre.codescreen{
+            border: 3px solid var( --code-gray );
+            border-radius: 3px;
+            margin: 0;
+            clear: both;
+          }
+
+          .btn-group button {
+            background-color: var( --st3-blck ); 
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            float: left;
+            border: 1px solid black;
+            border-radius: 3px;
+            width:auto;
+          }
+          </code></pre>
+
+          <!-- ******************************************** -->
+          <!-- cyber.html (fragment) -->
+          <!-- ******************************************** -->
+          <pre class="codescreen" id="csCSscr2"><code class="html">
+          &lt;!DOCTYPE html&gt;
+          &lt;html lang="en-US"&gt;
+            &lt;head&gt;
+              
+              &lt;!-- import highlight.js and the 
+              corresponding Monokai style sheet from a cdn --&gt;
+              &lt;link rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/gh/
+                highlightjs/cdn-release@11.4.0/build/styles/monokai-sublime.min.css"&gt;
+              &lt;script src="https://cdn.jsdelivr.net/gh/
+              highlightjs/cdn-release@11.4.0/build/highlight.min.js"&gt;&lt;/script&gt;
+
+              &lt;!-- highlight.js will automatically perform 
+              syntax highlighting on any code wrapped in &lt;pre&gt;&lt;code&gt; tags --&gt;
+              &lt;script&gt;hljs.highlightAll();&lt;/script&gt;
+
+            &lt;/head&gt;
+          &lt;body&gt;
+
+
+          &lt;!-- ******************************************** --&gt;
+          &lt;!-- top bar code screeens nav --&gt;
+          &lt;!-- ******************************************** --&gt;
+          &lt;div id="csnavTB" class="btn-group"&gt;
+            &lt;button id="csTBbttn0"&gt;buttonProperties.js&lt;/button&gt;
+            &lt;button id="csTBbttn1"&gt;buttonActions.js&lt;/button&gt;
+            &lt;button id="csTBbttn2"&gt;cyber.css&lt;/button&gt;
+            &lt;button id="csTBbttn3"&gt;cyber.html&lt;/button&gt;
+          &lt;/div&gt;
+
+          &lt;!-- ******************************************** --&gt;
+          &lt;!-- buttonProperties.js --&gt;
+          &lt;!-- ******************************************** --&gt;
+          &lt;pre class="codescreen" id="csTBscr0"&gt;&lt;code class="javascript"&gt;
+            &lt;!-- JavaScript to be displayed with syntax highlighting --&gt;
+          &lt;/code&gt;&lt;/pre&gt;
+
+          </code></pre> <!-- real one -->
+
+
+    </div> <!-- end panel -->
+    
+  </div>
+
+    <!-- ******************************************** -->
+    <!-- UNDERSTANDING /etc/shadow -->
+    <!-- ******************************************** -->
+    <div id="shadow" class="revealbox">
+      <p id="fshadow" class="flip">Understanding <code class=il>/etc/shadow</code></p>
+      <div id="pshadow" class="panel">
+      <div class="rbdate"><i>8 December, 2021</i></div>
+        <p style="text-indent: 0">On linux machines, hashes of user passwords are stored in the file <code class=il>/etc/shadow</code></p>
+        <!-- <img class="terminal" src="./images/shadow1.png" alt="showing location of /etc/shadow file in the terminal"> -->
+        <div class="container">
+        	<pre><font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~</b></font>$ ls -l /etc/ | grep &quot;shadow&quot;
+-rw-r-----  1 root <font color="#CC0000"><b>shadow</b></font>    914 Dec 31 15:06 g<font color="#CC0000"><b>shadow</b></font>
+-rw-r-----  1 root <font color="#CC0000"><b>shadow</b></font>    904 Dec 15 10:57 g<font color="#CC0000"><b>shadow</b></font>-
+-rw-r-----  1 root <font color="#CC0000"><b>shadow</b></font>   1699 Dec 31 18:01 <font color="#CC0000"><b>shadow</b></font>
+-rw-r-----  1 root <font color="#CC0000"><b>shadow</b></font>   1462 May  3  2021 <font color="#CC0000"><b>shadow</b></font>-
+<font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~</b></font>$ </pre>
+
+        </div>
+      	<p>We see above that <code class=il>/etc/shadow</code> has permission level <code class=il>640</code> and is owned by <code class=il>root</code>, so that only sudoers have read/write permissions.</p>
+      	<p>It is worth understanding how an entry of <code class=il>/etc/shadow</code> is formatted since quite a bit of useful information can be extracted from a single such entry. Here is an entry of <code class=il>/etc/shadow</code> for the user <code class=il>randy</code>. (Actually the entry has been truncated for readability).</p>
+      	<!-- <img src="./images/shadow2.png" alt="a (truncated) entry of /etc/shadow" class="terminal"> -->
+      	<div class="container">
+      		<pre><font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~</b></font>$ sudo cat /etc/shadow | grep &quot;randy&quot;
+<font color="#CC0000"><b>randy</b></font>:$6$lqp1...:18992:0:99999:7:::
+<font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~</b></font>$ 
+</pre>
+
+      	</div>
+      	<h3 style="text-indent:0; text-decoration: underline">Each entry consists of nine fields separated by the colon (:) as a delimiter:</h3>
+      	<ol>
+      		<li>The first field specifies the username:
+      			<!-- <img style="margin-top: 10px; margin-bottom: 10px" src="./images/shadow3.png" alt="the first field of a single entry of /etc/shadow" class="terminal"> -->
+
+      			<div class="container">
+      				<pre><font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~</b></font>$ sudo cat /etc/shadow | grep &quot;randy&quot; | cut -d &quot;:&quot; -f 1
+randy
+<font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~</b></font>$ 
+</pre>
+
+      			</div>
+      		(For this example, the username is <code class=il>randy</code>.)
+      		</li><br>
+      		<li>The second field contains hash information about the plain text password for the user in question:
+      			<!-- <img style="margin-top: 10px; margin-bottom: 10px" src="./images/shadow4.png" alt="the second field of a single entry of /etc/shadow" class="terminal"> -->
+
+      			<div class="container">
+      				<pre><font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~</b></font>$ sudo cat /etc/shadow | grep &quot;randy&quot; | cut -d &quot;:&quot; -f 2
+$6$lqp1kwZ2pD2x0z35$3I2n...KbyS.SXxVOllcrFHLYFJX1
+<font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~</b></font>$ 
+</pre>
+
+      			</div>
+          (Here again we have truncated for easier reading).
+
+          <p>This second field can be further decomposed into three subfields delimited by "dollar signs" ($). A generic such second field has the form <code class=il>$id$salt$hashed</code>.</p>
+          <p>The first two subfields (<code class=il>$id</code> and <code class=il>$salt</code>) tell us how the third subfield (<code class=il>$hashed</code>) is computed from the plaintext password. More precisely, <code class=il>$id</code> indicates the particular hashing algorithm used, and <code class=il>$salt</code> contains information about any salt fed into that hashing algorithm in order to obtain <code class=il>$hashed</code>. While there are tons of hashing algorithms available (each with a unique <code class=il>$id</code>), some of the most commonly used include:
+            <ul>
+              <li><code class=il>$1</code>: <a href="https://en.wikipedia.org/wiki/MD5" >MD5</a></li>
+              <li><code class=il>$2</code>, <code class=il>$2a</code>, <code class=il>$2y</code>: various versions of <a href="https://en.wikipedia.org/wiki/Bcrypt" >bcrypt</a></li>
+              <li><code class=il>$5</code>: <a href="https://en.wikipedia.org/wiki/SHA-2" >SHA-256</a></li>
+              <li><code class=il>$6</code>: <a href="https://en.wikipedia.org/wiki/SHA-2" >SHA-512</a></li>
+              <li><code class=il>$y</code>: <a href="https://www.openwall.com/yescrypt/" >yescrypt</a></li>
+            </ul>
+          Returning to our example, we see that the hashing algorithm used is <code class=il>$6</code>, or SHA-512. (This has been the default hashing algorithm used by <a href="https://wiki.ubuntu.com/Security/Features" >Ubuntu</a> distributions for some time now). 
+          </p> 
+      		</li>
+      	</ol>
+      	<p>From the point of view of a hacker, the remaining seven fields in an entry of <code class=il>/etc/shadow</code> are less relevant than the first two: they contain metadata such as when the password was created, and when it must be changed. One of the popular utilities for cracking password hashes is <code class=il><a href="https://hashcat.net/hashcat/" >hashcat</a></code>. At the most basic level <code class=il>hashcat</code> wants to know the hashing algorithm used (for example, starting a call with <code class=il>hashcat -m 0</code> tells <code class=il>hashcat</code> that the hash was computed using MD5), and then the hash itself together with any salt. We will have much more to say about hashcat in a future post; for now we will finish with two quick notes:</p>
+        <ul>
+          <li>Beginning with releases 2021.1+, <a  href="https://fedoraproject.org/wiki/Changes/yescrypt_as_default_hashing_method_for_shadow">Kali Linux started using yescrypt</a> (<code class=il>$y</code>) as the default hashing algorithm for populating <code class=il>/etc/shadow</code>. It is worth mentioning that at this time, <code class=il>hashcat</code> does not support cracking hashes computed by yescrypt. </li>
+          <li>For the purpose of testing <code class=il>hashcat</code>, it would be handy to be able to generate <code class=il>$salt$hashed</code> strings (just as they would appear in <code class=il>/etc/shadow</code>) from arbitrary plain text passwords. While this can be done by creating new system users with those specific passwords, a much easier way is to use the utility <code class=il><a href="https://www.unix.com/man-page/linux/1/mkpasswd/" >mkpasswd</a></code>.</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <!-- ******************************************** -->
+    <!-- LINUX FILE PERMISSIONS -->
+    <!-- ******************************************** -->
+    <div id="perm" class="revealbox">
+      <p id="fperm" class="flip">Linux file permissions</p>
+      <div id="pperm" class="panel">
+      <div class="rbdate"><i>2 November, 2021</i></div>
+        <img src="./images/linux-permissions.png" alt="the basic format of a linux permission string" class="center">
+        <p>To meaningfully work with linux machines, a user needs to understand linux file permissions and how to manipulate them. <a  href="./files/linux-permissions.pdf">Here</a> are some basic notes I made on the topic.</p>
+      </div>
+    </div>
+
+     <!-- end revealbox -->
+
+
+<script src='../js/codeScreenTabs.js'></script>
+<script src='../js/flipsAndPanels.js'></script>
+<script src='../js/buttonActions.js'></script>
+</body>
+</html>

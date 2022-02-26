@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# this script signs the modules needed to use VMWare Player 16
+# following the steps at https://kb.vmware.com/s/article/2146460
+
+# if not running as root, exit script and print error message
+if (( $EUID != 0 )); then
+	echo "Error: Root permissions required---run as root."
+	exit
+else
+	
+	# date in MM-DD-YYYY format
+	d=`date +%m-%d-%Y`
+
+	# create name for directory and key files; move there
+	name=mok-$d
+	mkdir $name
+	cd $name
+
+	# generate keys using openssl
+	openssl req -new -x509 -newkey rsa:2048 -keyout $name.priv -outform DER -out $name.der -nodes -days 36500 -subj "/CN=VMware/"
+
+	# sign module vmmon using generated keys
+	/usr/src/linux-headers-`uname -r`/scripts/sign-file sha256 ./$name.priv ./$name.der $(modinfo -n vmmon)
+
+	# sign module vmnet using generated keys
+	/usr/src/linux-headers-`uname -r`/scripts/sign-file sha256 ./$name.priv ./$name.der $(modinfo -n vmnet)
+
+	# import the keys to mokutil (you wil be prompted for a password for the MOK enrollment)
+	mokutil --import $name.der
+
+	# one last step: reboot and follow steps from UEFI prompt to complete MOK enrollment
+	reboot
+fi

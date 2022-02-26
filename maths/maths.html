@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>ANDREW W. HERRING, PH.D.</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="maths.css">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src='../js/buttonProperties.js'></script>
+
+    <!-- mathjax -->
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+
+  </head>
+<body>
+
+  <!-- ******BUTTON BAR****** -->
+  <div class="buttonbar">
+
+    <!-- ******TOP BUTTON****** -->
+    <button id="tbttn" class="tbutton"></button>
+    
+    <!-- ******LEFT BUTTON****** -->
+    <button id="lbttn" class="lbutton"></button>
+
+    <!-- ******RIGHT BUTTON****** -->
+    <button id="rbttn" class="rbutton"></button>
+    
+  </div>
+
+  
+  <div class="homerow">
+  	<div class="mininav">
+  		<button class="tooltip" id="mnbttn1">Home
+        <span class="tooltiptext">andrewherring.github.io</span>
+      </button>
+  		<button class="tooltip" id="mnbttn2">My Thesis
+        <span class="tooltiptext">genus-bounds-for-some-dynatomic-modular-curves.pdf</span>
+      </button>
+  	</div>
+    <script src="../js/miniNavBar.js"></script>
+
+    <h2>I completed a Ph.D. in Mathematics from the <a href=https://www.math.uwo.ca/>University of Western Ontario</a> in September, 2021.</h2>
+    
+    <h3>My thesis, <a href="./files/herring--genus-bounds-for-some-dynatomic-modular-curves.pdf"><i>"Genus Bounds for Some Dynatomic Modular Curves,"</i></a> concerns the arithmetic dynamics of quadratic polynomial maps. For a short description of my thesis research, please scroll down to the Research section.</h3>
+    
+
+
+
+  </div>
+  <div class="sectionrow">
+  <h1 class="sectionheading">Research</h1>
+
+    <div id="thesis" class="revealbox">
+      <p id="fthesis" class="flip">Intro to my Thesis Research</p>
+      <div id="pthesis" class="panel">
+        <div class="rbdate"><i>18 February, 2022</i></div>
+        <p style="text-indent: 0">My thesis research belongs to <a href="https://en.wikipedia.org/wiki/Arithmetic_dynamics"><i>arithmetic dynamics</i></a>, a relatively new subdiscipline of pure mathematics in which we study dynamical systems from the point of view of number theory. In writing this note, I have tried to assume an absolute minimum of mathematical knowledge. My hope is that anyone who reads the first two sections (<i>"Dynamical Systems and Periodic Points"</i>, and <i>"Motivating Problem"</i>) will come away with at least some sense of the flavor of my thesis research. Beginning in the third section (<i>"Dynatomic Polynomials and their Galois Groups"</i>), I will assume the reader is familiar with the language of Galois groups, function fields, and curves. Despite having meditated on the issue, I don't think it's possible to give a precise statement of the main theorem of my thesis without this fancier language.
+        </p>
+
+        <h3 class="rbsection">Dynamical Systems and Periodic Points</h3>
+
+        <p>For us, a <b class="def">dynamical system</b> is any function \( f: \mathbb{Q} \to \mathbb{Q}  \). (Recall that \( \mathbb{Q} \) denotes the set of all rational numbers). Given such a dynamical system, we can talk about <b class="def">iterating</b> the function \( f \), by which we mean composing \( f \) with itself some number of times: for any element \( a \) of \( \mathbb{Q} \)  , the output \( f(a) \) is also an element of \( \mathbb{Q} \), so we can apply \( f \) again in order to obtain \( f^2 (a) := f(f(a)) \), and so on. For a rational number \( c \in \mathbb{Q} \), we will let \( f_c (x) \) denote the quadratic polynomial \( f_c (x):= x^2 + c \).   </p>
+
+        <h4>Example:</h4>
+          <ul>
+            <li>Let \( c = 0 \in \mathbb{Q} \), so that \( f_c (x) = x^2 +0 = x^2 \) .  Then \( f_c \)  is a dynamical system. To illustrate iteration of our function \( f_c \) we can start from any element, say \( a = 2 \in \mathbb{Q} \), and compute:  
+            $$\begin{aligned}
+              f_c^1& (2) = f_c (2) = (2)^2 = 4 \\[0.5em]
+              f_c^2& (2) = f_c (f_c(2)) = f_c (4) = (4)^2 = 16 \\[0.5em]
+              f_c^3& (2) = f_c (f_c^2 (2)) = f_c (16) = (16)^2 = 256 \\
+              &\vdots
+            \end{aligned}$$ 
+
+            </li>
+
+            <!-- <li> If \( c = -1  \), then \( f_c (x) = x^2 + (-1)  = x^2 -1 \)  is a dynamical system.  </li><br>
+
+            <li>If \( c = \frac{-29}{16} \), then \( f_c (x) = x^2 + \left( \frac{-29}{16} \right) = x^2 - \frac{29}{16} \)  is a dynamical system.  </li> -->
+          </ul>
+        <p>Now let \( f: \mathbb{Q} \to \mathbb{Q} \)  be an arithmetic dynamical system. An element \( a \in \mathbb{Q} \) is said to be a <b class="def">periodic point</b> for \( f \)  if there is some number \( k \gt 0 \) for which  
+          \[ f^k (a) = a. \] 
+        In other words, if we start from \( a \) and apply \( f \) to it \( k \)-many times, we get \( a \) back. For a periodic point \( a \in \mathbb{Q} \), the <b class="def">period</b> of \( a \) is the smallest number \( n \gt 0 \) for which \( f^n (a) = a \). (We will equivalently say that \( a \) is an <b class="def">\( n \)-periodic point</b> for \( f \)  ).
+        </p>
+        <h4>Examples:</h4>
+          <ul>
+            <li> Let \( c = 0 \), so that \( f_c (x) = x^2 +0 = x^2 \). Then the calculations
+              \[ f_c(0) = (0)^2 = 0, \ \ f_c(1) = (1)^2 = 1 \] 
+            show that each of \( 0 \) and \( 1 \) is a \( 1 \)-periodic point for \( f_c \).  (It is also common to call a \( 1 \)-periodic point a <b class="def">fixed point</b>).
+            </li><br>
+
+            <li> Let \( c = -1 \). Then \( f_c (x) = x^2 + (-1)  = x^2 -1 \)  is a dynamical system, and the calculations 
+            $$\begin{aligned}
+              f_c (0) &= (0)^2 -1 = -1, \\[0.5em]
+              f_c^2 (0) &= f_c (f_c (0)) \\[0.5em]
+              &= f_c (-1) \\[0.5em]
+              &= (-1)^2 -1 \\[0.5em]
+              &= 1 -1 = 0 
+            \end{aligned}$$ 
+            show that each of \( 0 \) and \( -1 \) is a \( 2 \)-periodic point for \( f_c \).  
+            </li><br>
+            
+            <li>Let \( c = \frac{-29}{16} \).  Then \( f_c (x) = x^2 + \left( \frac{-29}{16} \right) = x^2 - \frac{29}{16} \)  is a dynamical system. Calculations similar to those above show that each of \( \frac{-1}{4} \), \( \frac{-7}{4} \), and \( \frac{5}{4} \) is a \( 3 \)-periodic point for \( f_c \). (Start from any of these three values, say \( a = \frac{-1}{4} \) and then compute \( f_c (a) \), \( f_c ^2 (a) \), and \( f_c^3 (a) \)).
+
+            </li>
+          </ul>
+
+        <h3 class="rbsection">Motivating Problem</h3>
+
+        <p>To recap, above we saw explicit examples of quadratic polynomials \( f_c(x) = x^2 + c \) which have \( 1 \)-periodic, \( 2 \)-periodic, and \( 3 \)-periodic points. Great! But now one might naturally ask: <i>"does this keep going? Are there examples of quadratics \( f_c \) with points of period \( 4 \), \( 5 \), \( 6 \), and so on?" </i> This is the central question of my thesis research, and the best answer is: <i>we think there are no such examples, but we're not sure</i>.</p>
+
+        <div class="container">
+          <div class="thm"><b class="def">
+            Conjecture:
+          </b> (<a href="https://arxiv.org/abs/math/9508211"><i>Flynn, Poonen, Schaefer---1995</i></a>)
+          <p style="text-indent: 0">If \( n \) is at least \( 4 \), then there is no \( c \in \mathbb{Q} \) such that the quadratic polynomial \( f_c (x) = x^2 + c \) has a point of period \( n \) in \( \mathbb{Q} \).   </p>
+          </div>
+        </div>
+        <p style="text-indent: 0">(Recall that in mathematics, a <b class="def">conjecture</b> is a statement that is strongly believed to be true, but which has yet to be formally proved).</p>
+
+        <p>We will henceforth use the shorthand <b>FPS</b> to refer to the Conjecture of Flynn, Poonen, and Schaefer above. While <b>FPS</b> has yet to be proved in general, we do have proofs in a few small cases:</p>
+
+        <ul>
+          <li><b>FPS</b> holds for the case \( n=4 \) (<a href="http://matwbn.icm.edu.pl/ksiazki/aa/aa62/aa6243.pdf"><i>Morton---1992</i></a>);</li>
+          <li><b>FPS</b> holds for the case \( n = 5 \) (<a href="https://arxiv.org/abs/math/9508211"><i>Flynn, Poonen, Schaefer---1995</i></a>);</li>
+          <li>if the Birch and Swinnerton-Dyer Conjecture is true, then <b>FPS</b> holds for the case \( n=6 \) (<a href="https://arxiv.org/abs/0803.2836"><i>Stoll---2008</i></a>)</li>
+        </ul>
+
+        <p>Let's now assume the role of <i>"mathematical devil's advocate"</i> as we discuss how <b>FPS</b> might fail to be true. To show that <b>FPS</b> is false, it is enough to find a <i>single</i> counterexample. That is, it is enough to find a <i>single</i> number \( n \ge 4 \) and a <i>single</i> rational value \( c \in \mathbb{Q} \) such that \( f_c(x) \) has a point of period \( n \) in \( \mathbb{Q} \).  If someone found a single such counterexample, it would be a sad day for <b>FPS</b> supporters, but it could be much worse. Indeed, suppose someone found some integer \( n \ge 4 \) and <i>infinitely many</i> rational values \( c \in \mathbb{Q} \) such that each quadratic \( f_c  \) has a point of period \( n \) in \( \mathbb{Q} \).   Then not only would <b>FPS</b> be false, but it would be false infinitely many times!</p>
+
+        <p>For each integer \( n \ge 1 \), let <b class="def">\( \mathbf{\mathrm{F.P.}(n)} \)</b> denote the statement: <i>"there are at most finitely many \( c \in \mathbb{Q} \) such that \( f_c (x) = x^2 + c \) has a point of period \( n \) in \( \mathbb{Q} \)."</i> We have the following: </p>
+
+        <div class="container">
+          <div class="thm">
+            <b class="def">
+              Theorem:
+            </b> 
+            (<a href="http://www.numdam.org/article/CM_1996__103_3_319_0.pdf"><i>Morton---1996</i></a>)
+            <p style="text-indent: 0">
+              \( \mathrm{F.P.} (n) \) holds for every \( n \ge 4 \).  
+            </p>
+          </div> <!-- end div.thm -->
+        </div> <!-- end div.container -->
+
+        <p>One consequence of my thesis research is that \( \mathrm{F.P.}(n) \) holds for every \( n \ge 10 \). But as we see in the previous Theorem, this was already known. For a mathematician to earn a Ph.D. they must prove something new. What then is that "something new" which I proved in my thesis? To answer this, we will require some fancier language.</p>
+
+        <h3 class="rbsection">Periodic Points More Generally</h3>
+
+        <p style="text-indent: 0">In the previous two sections, I have tried to assume zero mathematical background. Unfortunately, I don't think it's possible to have an efficient and precise discussion of the results of my thesis without assuming some familiarity with Galois groups, functions fields, and curves.</p>
+
+
+        <p style="text-indent: 0">Going forward, we will need a more general framework for discussing periodic points:
+          <ul>
+            <li>let \( \mathbb{F} \) be any <b class="def">perfect field</b> and let \( \bar{\mathbb{F}} \) be a fixed <b class="def">algebraic closure</b> of \( \mathbb{F} \);</li>
+            <li>let \( g(x) \in \mathbb{F}[x] \) be any <b class="def">non-constant polynomial</b>;</li>
+            <li>the set \( \mathrm{Per}(g) \) of all <b class="def">periodic points</b> for \( g \) is defined by
+              \[ 
+                \mathrm{Per}(g):= \{ \alpha \in \bar{\mathbb{F}} : g^k (\alpha) = \alpha \text{, some \( k \ge 1 \) } \};
+              \]
+            </li>
+            <li>the <b class="def">period</b> of \( \alpha \in \mathrm{Per}(g) \) is the positive integer 
+              \[ 
+                n:= \mathrm{min} \{ k \ge 1 : g^k (\alpha) = \alpha \},
+              \]
+            and we will equivalently say that \( \alpha \) is <b class="def">\( n \)-periodic </b> for \( g \). Let
+            \[ 
+              \mathrm{Per}_{ n } (g) := \{ \alpha \in \bar{\mathbb{F}}  : \text{\( \alpha \) is \( n \)-periodic for \( g \)} \}   
+            \]
+            denote the set of all \( n \)-periodic points for \( g \). Finally, given any subset \( S \subseteq  \bar{\mathbb{F}}  \), we will let 
+            \[ 
+              \mathrm{Per}_{ n } (g; S)  := \mathrm{Per} (g)  \cap S  
+            \] 
+            denote the <b class="def"> set of all \( n \)-periodic points in \( S \)  </b>.
+            </li>
+          </ul>
+        </p>
+
+        <h3 class="rbsection">Dynatomic Polynomials and their Galois Groups</h3>
+
+        <p style="text-indent: 0">Now, let \( t \) be transcendental over \( \mathbb{C} \), let \( K \) denote the <b class="def">rational function field</b> \( K := \mathbb{Q}(t) \), let \( A \) denote the  <b class="def">polynomial ring</b> \( A:= \mathbb{Q}[t] \), and let \( f(x) \)  denote the <b class="def">(generic) quadratic polynomial</b> \( f(x):= x^2 +t \in A[x] \). In order to study the dynamics of the quadratic polynomial \( f_c (x) = x^2 + c \in \mathbb{Q}[x] \) for each \( c \in \mathbb{Q} \), we will instead study the dynamics of \( f(x) \), and how these dynamics behave under "specialization." </p>
+
+        <p>Fix an integer \( n \ge 1 \). Our key tool for studying the \( n \)-periodic points of \( f(x) \) is the <b class="def"> \( n \)-th dynatomic polynomial </b>:
+        \[ 
+           \Phi_{n  }  \left( x \right) := \prod_{d \mid n} \left( f^d(x) - x \right)^{\mu(n/d)}
+        \]
+        where \( \mu \) is the <a href="./files/herring--genus-bounds-for-some-dynatomic-modular-curves.pdf#page=13">M&ouml;bius function</a>. The utility of \(  \Phi_{n  } (x)  \) is that its zeros are precisely the \( n \)-periodic points of \( f \). Indeed, let \( L_n \) denote the <b class="def"> splitting field of \(  \Phi_{n  }     \) over \( K \) </b> , and let 
+        \[ 
+            Z_n := \{ \alpha \in L_n : \Phi_n (\alpha) = 0 \} 
+        \]
+        denote the <b class="def"> (geometric) zero set of \( \Phi_n (x) \) </b>. Then the following hold:
+        <ol type="a">
+          <li>\(  \Phi_{n  }  \left( x \right) \in A[x] \) and \(  \Phi_{n  }  \left( x \right)     \) is monic in \( x \);</li>
+          <li>\(  \Phi_{n  }  \left( x \right)   \) is irreducible over \( \mathbb{C} (t) \);</li>
+          <li>\( Z_n = \mathrm{Per}_{ n } (f)   \);</li>
+          <li>\(  \Phi_{n  } (x)    \) divides \(  \Phi_{n  }  \left( f(x) \right)     \).</li>
+        </ol>
+        (See <a href="./files/herring--genus-bounds-for-some-dynatomic-modular-curves.pdf#page=13">Proposition 1.3.3.</a>) A consequence of c. and d. above is that \( n \) divides \( \deg  \Phi_{n  } (x) \); let \( r \) denote the integer
+        \[ 
+          r:= \frac{\deg  \Phi_{n  }  \left( x \right)}{n}.
+        \]
+        </p>
+
+        <p>Our quadratic polynomial \( f(x) = x^2 + t \in K[x] \) is a "generic representative" for each quadratic \( f_c (x) = x^2 + c \in \mathbb{Q}[x] \) in the sense that every \( f_c \) is obtained from \( f \) by <b class="def">specialization</b>. That is, for each \( c \in \mathbb{Q} \) we have that
+        \[ 
+          f(x) \mid_{t = c}  = (x^2 +t)|_{t = c} = x^2 +c = f_c (x).
+        \]
+        This "generic representative" philosophy also extends to dynatomic polynomials. Indeed, fix some \( c \in \mathbb{Q} \). Then
+        \[
+          \Phi_{n,c} (x)  :=  \prod_{d \mid n} \left( f_c^d (x) - x \right) ^{\mu(n/d)} \in \mathbb{Q} [x]
+        \]
+        is the <b class="def"> \( n \)-th dynatomic polynomial (specialized) at \( c \)  </b>. Notice that 
+        \[ 
+           \Phi_{n ,c }  \left( x \right)     =  \Phi_{n  }  \left( x \right)    |_{t = c}
+        \]  
+        so that \( \Phi_{n,c} \)  deserves its name.</p>
+        <p> We will let \( L_{n,c}  \) denote the <b class="def"> splitting field of \(  \Phi_{n ,c }  \) over \( \mathbb{Q} \) </b>, and
+        \[ 
+          Z_{n,c}:= \{ \alpha \in L_{n,c} :  \Phi_{n ,c }  \left( \alpha \right)    = 0\} 
+        \] 
+        will denote the <b class="def"> (geometric) zero set of  \( \Phi_{n ,c } (x) \)     </b>. The containment \( \mathrm{Per}_{ n } (f_c)  \subseteq  Z_{n,c} \) still holds, but unlike in the generic setting (where we saw that \( Z_n = \mathrm{Per}_{ n } (f)   \)), we don't always have equality.  </p>
+
+        <p>Now, each of the field extensions \( L_n / K \) and \( L_{n,c} / \mathbb{Q}  \) is Galois, so we can discuss their Galois groups:
+        \[ 
+          G_n:= \mathrm{Gal}(L_n/K)   
+        \] 
+        is the <b class="def"> \( n \)-th dynatomic Galois group </b>, and 
+        \[ 
+           G_{n,c}:= \mathrm{Gal}(L_{n,c} /\mathbb{Q} )   
+        \]
+        is the <b class="def"> \( n \)-th dynatomic Galois group (specialized) at \( c \)  </b>. By the work (<a href="https://www.semanticscholar.org/paper/Sur-quelques-probl%C3%A8mes-de-dynamique-holomorphe-Bousch/75f65a4efb7f9a6a782819e965aca575c0006441"><i>Bousch---1992</i></a>), we have an explicit description of \( G_n \) as a semi-direct product:
+        \[ 
+          G_n \cong \left( \mathbb{Z} / n \right)^{ r } \rtimes S_{ r },  
+        \] 
+        where \( S_r \) acts by automorphisms on \( \left( \mathbb{Z} / n \right)^{ r }   \) by permuting factors according to the natural action of \( S_r \) on \( [r]:=\{1 , \ldots, r\} \). This result begs the question: <i>do we have a similarly nice description of the specialized dynatomic Galois groups \( G_{n,c}  \)?</i> If we define
+        \[ 
+          D_n := \{ c \in \mathbb{Q} :  \text{\( \Phi_{n ,c } (x) \) is inseparable}   \},
+        \]
+        then we can give a partial answer: 
+        </p>
+        <div class="container">
+          <div class="thm">
+            <b class="def">
+              Proposition:
+            </b> (See <a href="./files/herring--genus-bounds-for-some-dynatomic-modular-curves.pdf#page=29"><i>Corollary 2.3.7.</i></a>)
+
+            <p style="text-indent: 0">
+              If \( c \in \mathbb{Q} -D_n \), then \( G_{n,c} \le G_n \).
+            </p>
+          </div> <!-- end div.thm -->
+        </div> <!-- end div.container -->
+
+        <p style="text-indent: 0">Since \( D_n \) is the zero set of the discriminant of \(  \Phi_{n  }  \left( x \right) \), we know that \( D_n \) is finite. Thus, outside of a finite set \( D_n \) of values, \( G_{n,c} \) embeds as a subgroup of \( G_n \).</p>
+
+        <p>But knowing that \( G_{n,c} \le G_n \) may not be super helpful by itself. As we can see in the table
+
+          $$\begin{array}{|c|c|c|c|} \hline
+          n & \left| G_n \right| &n & \left| G_n \right| \\ \hline
+          1 & 2 & 5 & 11250000 \\ \hline
+          2 & 2 & 6 & \sim 10^{12} \\ \hline
+          3 & 18 & 7 & \sim 10^{31}  \\ \hline
+          4 & 384 & 8 & \sim 10^{59} \\ \hline
+          \end{array}$$
+
+        the size \(  \left| G_n \right|   \) appears to grow exponentially with \( n \) so that the size of the subgroup lattice of \( G_n \) becomes incomprehensibly large very quickly. That said, there is one (non-trivial) subgroup of \( G_n \) whose structure we understand: the full subgroup \( G_n \) itself! We may then ask: <i>how often is it the case that \( G_{n,c} = G_n \)? </i> The main Theorem of my thesis gives an answer: if \( n \ge 10 \), then \( G_{n,c} = G_n \) <b>almost always</b>.</p>
+
+        <h3 class="rbsection">Exceptional Values and Periodic Points</h3>
+
+        <p style="text-indent: 0">Let
+        \[ 
+          E_n := \{ c \in \mathbb{Q} - D_n : G_{n,c} \lneq G_n  \} 
+        \]
+        be the set of all values \( c \in \mathbb{Q} -D_n \) for which \( G_{n,c}  \) embeds as a <i>proper</i> subgroup of \( G_n \). We call \( E_n \) the <b class="def"> \( n \)-th exceptional set </b>, and elements of \( E_n \) are called <b class="def"> exceptional values </b>. We are finally equipped to make a connection between dynatomic Galois groups and periodic points in \( \mathbb{Q}  \) for quadratic polynomials:</p>
+
+      <div class="container">
+        <div class="thm">
+          <b class="def">
+            Theorem:
+          </b>(<a href="./files/herring--genus-bounds-for-some-dynatomic-modular-curves.pdf#page=29"><i>Theorem 2.3.8.</i></a>)
+          <p style="text-indent: 0">
+            Let \( c \in \mathbb{Q} -D_n \). If \( \mathrm{Per}_{ n } (f_c; \mathbb{ Q } )   \) is non-empty, then \( c \in E_n \).
+          </p>
+        </div> <!-- end div.thm -->
+      </div> <!-- end div.container -->
+      <p style="text-indent: 0">Recall from earlier that \(  \mathrm{F.P.}(n)   \) is a short hand for the statement: <i>"there are at most finitely many \( c \in \mathbb{Q}  \)  for which \( \mathrm{Per}_{ n } (f_c; \mathbb{ Q } )   \) is non-empty."</i> We thus have an immediate consequence of the Theorem:</p>
+      <div class="container">
+        <div class="thm">
+          <b class="def">
+            Corollary:
+          </b> 
+          <p style="text-indent: 0">
+            Fix an integer \( n \ge 1 \). If \( E_n \) is a finite set, then \(  \mathrm{F.P.}(n)   \) is true.
+          </p>
+        </div> <!-- end div.thm -->
+      </div> <!-- end div.container -->
+      <p style="text-indent: 0">A few remarks are in order:</p>
+      <ul>
+        <li>The converse to the Corollary is false, so that the statement <i>"\( E_n \) is finite "</i> is strictly stronger than the statement \(  \mathrm{F.P.}(n)   \). Indeed, (<a href="http://matwbn.icm.edu.pl/ksiazki/aa/aa62/aa6243.pdf"><i>Morton---1992</i></a>) proves that <b>FPS</b> holds for the case \( n=4 \), and this of course implies \( \mathrm{F.P.}(4) \). On the other hand, (<a href="https://arxiv.org/pdf/1707.02501v3.pdf"><i>Krumm---2017</i></a>) proves that the set \( E_4 \) is infinite.</li>
+
+        <li>According to <a href="https://en.wikipedia.org/wiki/Hilbert%27s_irreducibility_theorem">Hilbert's Irreducibility Theorem</a>, the set \( E_n \) is known to be "thin." Thin sets are small (in a suitable sense coming from algebraic geometry), but may still be infinite. Thus, to prove that \( E_n \) is finite is stronger than what is given by Hilbert Irreducibility.</li>
+
+        <li>In (<a href="https://msp.org/ant/2019/13-4/p06.xhtml"><i>Krumm---2019</i></a>), David Krumm proved that \( E_n \) is finite for \( n \in \{5,6,7,9\} \).  </li>
+      </ul>
+
+      <p style="text-indent: 0">We have finally arrived at the main result of my Ph.D. research:</p>
+      <div class="container">
+        <div class="thm">
+          <b class="def">
+            Theorem:
+          </b> 
+          <p style="text-indent: 0">
+            \( E_n \) is finite for every \( n \) at least \( 10 \).
+          </p>
+        </div> <!-- end div.thm -->
+      </div> <!-- end div.container -->
+
+      <p style="text-indent: 0">Taking the above Theorem together with the results of (<a href="https://msp.org/ant/2019/13-4/p06.xhtml"><i>Krumm---2019</i></a>), we know that \( E_n \) is finite for every \( n \ge 5 \) except possibly for \( n=8 \). <b class="caution">As of this writing, we are not sure what happens for \( n=8 \). In the next few sections, we will briefly outline the methods used for proving the Theorem</b>.</p>
+
+      <h3 class="rbsection">Function Fields and Curves</h3>
+
+      <p style="text-indent: 0">Fix an integer \( n \ge 1 \), and let \( H \) be any subgroup of our dynatomic Galois group \( G_n \). We will let \( L_n^{H} \) denote the <b class="def"> fixed field of \( H \) in \( L_n \)  </b>. Then each of the fields \( K \), \( L_n^{H}  \), and \( L_n \) is a <b class="def"> function field over \( \mathbb{Q}  \)  </b>. That is, for each \( \mathbb{F}  \in \{K, L_n^{H} , L_n\} \):
+      <ul>
+        <li>\( \mathbb{F} \) is a finitely generated extension of \( \mathbb{Q}  \),</li>
+        <li>the extension \( \mathbb{F}  / \mathbb{Q}  \) has transendence degree \( 1 \), and</li>
+        <li>\( \mathbb{Q}  \) is algebraically closed in \( \mathbb{F}   \).</li>
+      </ul>
+      </p>
+
+      <p>
+      By a well-known equivalence of categories (<a href="./files/herring--genus-bounds-for-some-dynatomic-modular-curves.pdf#page=33">Theorem 3.1.5.</a>), there are curves \( X \), \( Y \), and \( W \) defined over \( \mathbb{Q} \)  corresponding to \( L_n \), \( L_n^{H} \), and \( K \) respectively. Then
+      <ul>
+        <li>the curve \( W \) corresponding to \( K = \mathbb{Q} (t)  \) is \( \mathbb{P}  _{\mathbb{Q} } ^{1} \), the <b class="def"> projective line defined over \( \mathbb{Q}  \)  </b>;</li>
+        <li>the curve \( Y \) corresponding to \( L_n^{H}  \) is the <b class="def"> quotient curve </b> \( X_H \equiv X / H \) whose points are \( H \)-orbits under the action of \( H \) on \( X \).</li>
+      </ul>
+      We therefore have equivalent diagrams
+      <img src="./images/function-fields-and-curves.png" alt="equivalent diagrams of function fields and curves" class="center">
+      of function fields and curves over \( \mathbb{Q} \). 
+      </p>
+
+      <h3 class="rbsection">Dynatomic Modular Curves </h3>
+
+      <p style="text-indent: 0">Any curve of the form \( X_H \) is called a <b class="def"> dynatomic modular curve </b>. If \( C \) is any curve defined over \( \mathbb{Q}  \), we will let \( C(\mathbb{Q} ) \) denote the <b class="def"> set of all \( \mathbb{Q}  \)-rational points of \( C \)  </b>. Then \( \mathbb{Q}  \)-rational points on dynatomic modular curves are closely related to exceptional values:</p>
+      <div class="container">
+        <div class="thm">
+          <b class="def">
+            Theorem:
+          </b> (<a href="./files/herring--genus-bounds-for-some-dynatomic-modular-curves.pdf#page=35">Theorem 3.2.5.</a>)
+          <p style="text-indent: 0">
+            Let \( c \in \mathbb{Q} -D_n \). Then \( c \in E_n \) if and only if \( c \in \pi_H (X_H (\mathbb{Q}  )) \) for some proper subgroup \( H \lneq G_n \).
+          </p>
+        </div> <!-- end div.thm -->
+      </div> <!-- end div.container -->
+      <p style="text-indent: 0">According to the Theorem, to show that \( E_n \) is finite, it suffices to show that \( X_H (\mathbb{Q}) \) is finite for every proper subgroup \( H \lneq G_n \).</p>
+
+      <p>Let \( C \) be any curve defined over \( \mathbb{Q}  \). The standard tool for showing that \( C(\mathbb{Q} ) \) is finite is Faltings' Theorem. Let \( g(C) \) denote the <b class="def"> genus of \( C \)  </b>. </p>
+
+      <div class="container">
+        <div class="thm">
+          <b class="def">
+            Theorem:
+          </b> (<a href="https://en.wikipedia.org/wiki/Faltings%27s_theorem"><i>Faltings' Theorem</i></a>)
+          <p style="text-indent: 0">
+            Let \( C \) be any curve defined over \( \mathbb{Q} \). If \( g(C) \ge 2 \), then \( C(\mathbb{Q}) \) is finite.   
+          </p>
+        </div> <!-- end div.thm -->
+      </div> <!-- end div.container -->
+
+      <p style="text-indent: 0">Our strategy then will be to show that for every proper subgroup \( H \lneq G_n \), the genus \( g(X_H) \) of the dynatomic modular curve \( X_H \) is at least \( 2 \). By a standard reduction, we can do even better: it suffices to show that \( g(X_M) \ge 2 \) for every <i>maximal</i> subgroup \( M \lneq G_n \).  This is precisely what we prove for \( n \ge 10 \): </p>
+
+      <div class="container">
+        <div class="thm">
+          <b class="def">
+            Theorem:
+          </b> (<a href="./files/herring--genus-bounds-for-some-dynatomic-modular-curves.pdf#page=57"><i>Corollary 6.2.15.</i></a>, and <a href="./files/herring--genus-bounds-for-some-dynatomic-modular-curves.pdf#page=69"><i>Theorem 6.3.5.</i></a>) 
+          <p style="text-indent: 0">
+            Let \( n \ge 10 \). Then \( g(X_M) \ge 2 \) for every maximal subgroup \( M \) of \( G_n \).   
+          </p>
+        </div> <!-- end div.thm -->
+      </div> <!-- end div.container -->
+
+      <h3 class="rbsection">Bounding Genus: a Roadmap</h3>
+
+      <p style="text-indent: 0">In this final section I will briefly outline the methods used to prove the previous Theorem. I will be intentionally "hand-wavey," but will include ample references to precise statements in my Thesis.</p>
+
+      <p>First of all, maximal subgroups \( M \) of \( G_n \cong \left( \mathbb{Z} / n \right)^{ r } \rtimes S_{ r }   \) come in two distinct "flavors" according to whether or not they map onto \( S_r \): if \( M \) <b>does</b> map onto \( S_r \), then we call \( M \) a <b class="def"> vanilla maximal subgroup </b>, and otherwise we call \( M \) a <b class="def"> chocolate maximal subgroup </b> (see <a href="./files/herring--genus-bounds-for-some-dynatomic-modular-curves.pdf#page=54">Section 6.1</a>). To bound genus for chocolate maximals, we apply a powerful Theorem of Guralnick and Shareshian (<a href="./files/herring--genus-bounds-for-some-dynatomic-modular-curves.pdf#page=68">Theorem 6.3.2.</a>).</p>
+
+      <p>To bound genus for each vanilla maximal \( M \), we use the Riemann-Hurwitz genus formula (<a href="./files/herring--genus-bounds-for-some-dynatomic-modular-curves.pdf#page=35">Theorem 3.2.4.</a>) which expresses the genus \( g(X_M) \) in terms of the index \( [G_n : M] \) and ramification indices \( e(Q \mid P) \) for various places \( P \) and places \( Q \) lying over \( P \). These ramification indices can be computed (<a href="./files/herring--genus-bounds-for-some-dynatomic-modular-curves.pdf#page=25">Corollary 2.2.15.</a>) as certain indices \( [{ }^{ g } I : { }^{ g } I \cap M ] \) of \( G_n \)-conjugates of inertia subgroups \( I \le G_n \), and then we use this fact in <a href="./files/herring--genus-bounds-for-some-dynatomic-modular-curves.pdf#page=60">Section 6.2.2</a> to compute ramification indices above certain finite places. If we assume \( n \) is at least \( 10 \) and then plug all of this ramification data into the Riemann-Hurwitz formula we get our desired lower bounds on genus for vanilla maximals (<a href="./files/herring--genus-bounds-for-some-dynatomic-modular-curves.pdf#page=67">Corollary 6.2.15</a>).</p>
+
+     
+      
+      
+
+      <!-- In fact, by a standard reduction we can do even better: to show that \( E_n \) is finite, it suffices to show that \( X_M (\mathbb{Q} ) \) is finite for every maximal subgroup \( M \) of \( G_n \). -->
+       
+
+
+
+
+      </div> <!-- end div.panel -->
+    </div>  <!-- end div.revealbox -->
+
+  
+  </div>
+  <div class="sectionrow">
+    <h1 class="sectionheading">Teaching</h1>
+    <p>I've done some teaching</p>
+    <p>Lorem ipsum</p>
+    <p>Lorem ipsum</p>
+    <p>Lorem ipsum</p>
+    <p>Lorem ipsum</p>
+    <p>Lorem ipsum</p>
+    <p>Lorem ipsum</p>
+    <p>Lorem ipsum</p>
+    <p>Lorem ipsum</p>
+    <p>Lorem ipsum</p>
+    <p>Lorem ipsum</p>
+  </div>
+  <div class="sectionrow">
+    <h1 class="sectionheading">Talks</h1>
+    <!-- <iframe src="./files/herring--genus-bounds-for-some-dynatomic-modular-curves.pdf" title="test" height="100%" width="100%"></iframe> -->
+    Some stuff afterward
+  </div>
+
+
+
+  <script src='../js/buttonActions.js'></script>
+  <script src='../js/flipsAndPanels.js'></script>
+</body>
+</html>    

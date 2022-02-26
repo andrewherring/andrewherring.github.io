@@ -1,0 +1,14 @@
+<pre><font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~/Documents/website2</b></font>$ l
+<font color="#00CCF1"><b>code</b></font>/  <font color="#4E66DC"><b>colors.sh</b></font>*  <font color="#00CCF1"><b>cyber</b></font>/  <font color="#00CCF1"><b>files</b></font>/  <font color="#00CCF1"><b>images</b></font>/  index.html  <font color="#00CCF1"><b>js</b></font>/  <font color="#00CCF1"><b>maths</b></font>/  <font color="#00CCF1"><b>old</b></font>/  style.css  <font color="#4E66DC"><b>terminal-html.sh</b></font>*
+<font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~/Documents/website2</b></font>$ l js
+buttonActions.js  buttonProperties.js  flipsAndPanels.js  flipsAndPanels.log
+<font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~/Documents/website2</b></font>$ l maths/
+<font color="#00CCF1"><b>files</b></font>/  <font color="#00CCF1"><b>images</b></font>/  maths.css  maths.html  <font color="#00CCF1"><b>notes</b></font>/  <font color="#00CCF1"><b>research</b></font>/  <font color="#00CCF1"><b>teaching</b></font>/
+<font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~/Documents/website2</b></font>$ l maths/teaching/
+<font color="#4E66DC"><b>&quot;129-002_Syllabus_S&apos;14.pdf&quot;</b></font>*   2120_HW4.pdf       calc1000A_003.pdf                     <font color="#00CCF1"><b>INSTRUCTOR</b></font>/
+ 1400syllabus.pdf              2120_HW5.pdf       calc1000-exercises-2019.pdf           MATH123.001Syllabus.pdf
+ 2120_HW1.pdf                  2200syllabus.pdf   calc1000-outline-2019.pdf             Syllabus_2205-01.pdf
+ 2120_HW2.pdf                  assignment_1.pdf   evidence_of_teaching_excellence.pdf   <font color="#00CCF1"><b>TA</b></font>/
+ 2120_HW3.pdf                  assignment_2.pdf   final_review.pdf                      teaching_statement_herring.pdf
+<font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~/Documents/website2</b></font>$ 
+</pre>
