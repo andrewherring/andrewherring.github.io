@@ -1,6 +1,6 @@
 $("#mnbttn1").on({
   click: () => {
-    location.assign("../index.html");
+    location.assign("/");
   }
 });
 
