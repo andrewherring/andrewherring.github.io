@@ -1,6 +1,6 @@
 $("#mnbttn1").on({
   click: () => {
-    location.assign("/");
+    location.assign("https://andrewherring.github.io");
   }
 });
 
