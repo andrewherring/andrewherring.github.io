@@ -4,7 +4,7 @@ $(document).ready(function(){
   // **********WHEN BROWSER IS POINTED TO INDEX.HTML*******************
   // ******************************************************************
 
-  if (location.pathname == '/home/andrew/Documents/website2/index.html'){
+  if (location.pathname == '/'){
 
     // set the current button to top button
     const currentButton = "tbttn";
@@ -70,7 +70,7 @@ $(document).ready(function(){
   // **********WHEN BROWSER IS POINTED TO MATHS.HTML*******************
   // ******************************************************************
 
-  else if (location.pathname == '/home/andrew/Documents/website2/maths/maths.html'){
+  else if (location.pathname == '/maths/maths.html'){
 
     // set the current button to left button
     const currentButton = "lbttn"; 
@@ -126,7 +126,7 @@ $(document).ready(function(){
   // **********WHEN BROWSER IS POINTED TO CYBER.HTML*******************
   // ******************************************************************
 
-  else if (location.pathname == '/home/andrew/Documents/website2/cyber/cyber.html'){
+  else if (location.pathname == '/cyber/cyber.html'){
 
     // set the current button to right button
     const currentButton = "rbttn"; 

@@ -25,9 +25,9 @@ buttonIds = Object.getOwnPropertyNames(buttonsText);
 // create an object with paths for click events
 // (likely will have to change this once uploaded)
 const buttonClickPaths = {};
-  buttonClickPaths.tbttn = '/home/andrew/Documents/website2/files/resume.pdf';
-  buttonClickPaths.lbttn = '/home/andrew/Documents/website2/maths/maths.html';
-  buttonClickPaths.rbttn = '/home/andrew/Documents/website2/cyber/cyber.html';
+  buttonClickPaths.tbttn = '/files/resume.pdf';
+  buttonClickPaths.lbttn = '/maths/maths.html';
+  buttonClickPaths.rbttn = '/cyber/cyber.html';
 
 
 
