@@ -19,10 +19,6 @@
 
     <script>hljs.highlightAll();</script>
 
-    <!-- get the lato font from google -->
-    <!-- <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'> -->
-
-
   </head>
 <body>
 
@@ -53,50 +49,42 @@
       <button class="tooltip" id="mnbttn1">Home
         <span class="tooltiptext">andrewherring.github.io</span>
       </button>
-    </div>
-<!-- <script>
-  $("#mnbttn1").on({
-    click: () => {
-      location.assign("../index.html");
-    },
-    mouseenter: () => {
-      $("#mnbttn1").css({"color": "var(--turq)", "opacity": "1"});
-    },
-    mouseleave: () => {
-      $("#mnbttn1").css({"color": "white", "opacity": "0.6"});
-    }
-  });
+    </div> <!-- end div.mininav -->
+
+    <h2><i>I've been self-studying cyber security since Summer 2020.</i></h2>
+
+    <p style="text-indent: 0">Some of the resources I've been using in this learning project include:
+      <ul>
+        <li><a href="https://overthewire.org/wargames/"><i>OverTheWire Wargames:</i></a> so far I have completed:
+          <ul>
+            <li><a href="https://overthewire.org/wargames/bandit/">Bandit:</a> all levels;</li>
+            <li><a href="https://overthewire.org/wargames/krypton/">Krypton:</a> up to level 3;</li>
+            <li><a href="https://overthewire.org/wargames/natas/">Natas:</a> up to level 10;</li>
+          </ul>
+        </li>
+        <li><a href="https://tryhackme.com"><i>TryHackMe:</i></a> I am 92&percnt; complete with the "pre-security" learning path;</li>
+        <li><a href="https://www.youtube.com/playlist?list=PLW5y1tjAOzI0Sx4UU2fncEwQ9BQLr5Vlu"><i>Threat Wire:</i></a> is an excellent weekly news show about "security, privacy, and internet freedom";</li>
+        <li>I installed <a href="https://www.kali.org/">Kali-Linux-2021.4</a> as a virtual operating system on <a href="https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html">VMware Workstation Player 16</a>;</li>
+        <li>To learn about web development (and also because I needed a website), I wrote this very website from scratch.</li>
+      </ul>
+    Please see the next section (<i>"What Do I know?"</i>) for some short writeups of my learning thus far.
+    </p>
+  </div> <!-- end div.homerow -->
 
 
-  // const mNBttns = [];
-
-  // for (i=0; i < numMNBttns; i++){
-  //   mNBttns[i] = "#" + $(".mininav").children()[i].id;
-  // };
-
-  // for ( let b of mNBttns ){
-  //   $(b).on({
-  //     mouseenter: () => {
-  //     $(b).css({"color": "var(--turq)", "opacity": "1"});
-  //     },
-  //     mouseleave: () => {
-  //       $(b).css({"color": "white", "opacity": "0.8"});
-  //     }
-  //   })
-  // }
-
-</script> -->
-    <h1>This is the cyber landing section</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima earum quidem eveniet eum, molestiae repudiandae totam expedita eius repellendus neque dolorum perferendis! Quam nisi dolor provident id! Corrupti, harum, voluptas!</p>
-    <p>Dolorum cumque id tempore dolore maiores sed ducimus, eveniet ea repudiandae, quaerat ex, cupiditate! Id, iusto accusantium unde, obcaecati doloremque ipsum voluptatum quasi modi earum asperiores, inventore, voluptatibus minus provident.</p>
-    <p>Repudiandae debitis sequi cum qui aperiam, excepturi rerum, consequuntur nemo dignissimos assumenda, vero maxime dicta quasi officiis saepe quaerat obcaecati perferendis! Dolores atque, unde omnis obcaecati, accusantium explicabo pariatur reprehenderit.</p>
-    <p>Accusamus ea temporibus laboriosam deserunt cum dolore provident iure at quo ex eaque ad eveniet incidunt quam, quis porro aliquid sapiente quisquam quos ducimus repudiandae dolores aperiam? Quo qui, ad.</p>
-  </div>
+  <!-- ******************************************** -->
+  <!-- blog posts -->
+  <!-- ******************************************** -->
   <div class="sectionrow">
-    <h1 class="sectionheading">Next Section</h1>
+    <h1 class="sectionheading">What Do I Know?</h1>
 
+    <p style="text-indent: 0">The posts in this section detail a few things I have learned about computers and cyber security. To read a post, click on the black rectangle with the post's title.</p>
+
+    <!-- ******************************************** -->
+    <!-- signing VMware Modules -->
+    <!-- ******************************************** -->
     <div id="vmware" class="revealbox">
-      <p id="fvmware" class="flip">Signing VMware modules</p>
+      <p id="fvmware" class="flip">Signing VMware Modules</p>
       <div id="pvmware" class="panel">
         <div class="rbdate"><i>7 January, 2022</i></div>
           <p style="text-indent: 0">I use <code class="il"><a href="https://www.kali.org/">Kali-Linux-2021.4</a></code> as a virtual operating system on <a href="https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html">VMware Workstation Player 16</a>. As I learned, there will be an issue booting Kali on VMWare Workstation Player 16 on a Linux host which boots from UEFI with secure boot enabled: 
@@ -166,14 +154,11 @@
 
 
 
-
-
-
     <!-- ******************************************** -->
     <!-- WEB DEV CODE SAMPLES -->
     <!-- ******************************************** -->
     <div id="webdev" class="revealbox">
-      <p id="fwebdev" class="flip">Code samples from this very website</p>
+      <p id="fwebdev" class="flip">Two Months of Web Dev: Code Samples</p>
       <div id="pwebdev" class="panel">
         <div class="rbdate"><i>6 February, 2022</i></div>
           <p style="text-indent: 0">I wrote this website from scratch using (mostly vanilla) <code class="il">HTML</code>, <code class="il">CSS</code>, and <code class="il">JavaScript</code>. Originally I planned to use pure <code class="il">HTML</code> and <code class="il">CSS</code>. I realized pretty quickly however, that to implement the functionalities I wanted, pure <code class="il">HTML</code> and <code class="il">CSS</code> were insufficient. So in early Januaury 2022 I started learning <code class="il">JavaScript</code>. (For this self-learning project, I followed W3Schools' tutorials for <code class="il"><a href="https://www.w3schools.com/html/default.asp">HTML</a></code>, <code class="il"><a href="https://www.w3schools.com/css/default.asp">CSS</a></code>, <code class="il"><a href="https://www.w3schools.com/js/default.asp">JavaScript</a></code>, and <code class="il"><a href="https://www.w3schools.com/jquery/default.asp">jQuery</a></code>, and also frequently consulted <a href="https://developer.mozilla.org/en-US/docs/Learn">MDN Web Docs</a>. )</p>
@@ -194,8 +179,8 @@
 
           <ul>
             <li><code class="il"><a href="https://andrewherring.github.io">andrewherring.github.io</a></code></li>
-            <li><code class="il"><a href="https://andrewherring.github.io/maths.html">andrewherring.github.io/maths/maths.html</a></code></li>
-            <li><code class="il"><a href="https://andrewherring.github.io/cyber.html">andrewherring.github.io/cyber/cyber.html</a></code></li>
+            <li><code class="il"><a href="https://andrewherring.github.io/maths/maths.html">andrewherring.github.io/maths/maths.html</a></code></li>
+            <li><code class="il"><a href="https://andrewherring.github.io/cyber/cyber.html">andrewherring.github.io/cyber/cyber.html</a></code></li>
           </ul>
 
           Each of the top buttons has the same response to a click
@@ -244,15 +229,11 @@
           buttonIds = Object.getOwnPropertyNames(buttonsText);
 
           // create an object with paths for click events
-          // (likely will have to change this once uploaded)
           const buttonClickPaths = {};
-            buttonClickPaths.tbttn = '/home/andrew/Documents/
-            website2/files/resume.pdf';
-            buttonClickPaths.lbttn = '/home/andrew/Documents/
-            website2/maths/maths.html';
-            buttonClickPaths.rbttn = '/home/andrew/Documents/
-            website2/cyber/cyber.html';
-          </code></pre>
+            buttonClickPaths.tbttn = '/files/resume.pdf';
+            buttonClickPaths.lbttn = '/maths/maths.html';
+            buttonClickPaths.rbttn = '/cyber/cyber.html';
+          </code></pre><!-- end buttonProperties.js -->
 
           <!-- ******************************************** -->
           <!-- buttonActions.js -->
@@ -260,267 +241,275 @@
           <pre class="codescreen" id="csTBscr1"><code class="javascript">
           $(document).ready(function(){
 
-          // ******************************************************************
-          // **********WHEN BROWSER IS POINTED TO INDEX.HTML*******************
-          // ******************************************************************
+            // ******************************************************************
+            // **********WHEN BROWSER IS POINTED TO INDEX.HTML*******************
+            // ******************************************************************
 
-          if (location.pathname == '/home/andrew/Documents/
-          website2/index.html'){
+            if (location.pathname == '/'){
 
-            // set the current button to top button
-            const currentButton = "tbttn";
+              // set the current button to top button
+              const currentButton = "tbttn";
 
-            // proper format for jQuery selector
-            const cB = "#" + currentButton;
+              // proper format for jQuery selector
+              const cB = "#" + currentButton;
 
-            // duplicate the array buttonIds (from buttonProperties.js)
-            const nonCurrentButtons = [];
-            for (i=0; i < buttonIds.length; i++){
-              nonCurrentButtons[i] = buttonIds[i]
-            };
-
-            // then remove the current button to obtain nonCurrentButtons
-            for (i=0; i < nonCurrentButtons.length; i++){
-              if ( nonCurrentButtons[i] == currentButton ) {
-              nonCurrentButtons.splice(i,1);
+              // duplicate the array buttonIds (from buttonProperties.js)
+              const nonCurrentButtons = [];
+              for (i=0; i < buttonIds.length; i++){
+                nonCurrentButtons[i] = buttonIds[i]
               };
-            };
 
-            // set text for current button
-            $(cB).text(buttonsText[currentButton].i);
+              // then remove the current button to obtain nonCurrentButtons
+              for (i=0; i < nonCurrentButtons.length; i++){
+                if ( nonCurrentButtons[i] == currentButton ) {
+                nonCurrentButtons.splice(i,1);
+                };
+              };
 
-            // current button event handlers
-            $(cB).on({
-              click: () => {
-                location.assign(buttonClickPaths[currentButton]);
-              },
-              mouseenter: () => {
-                $(cB).css({"color":colors.a }).html(buttonsText[currentButton].a);
-              },
-              mouseleave: () => {
-                $(cB).css({"color":colors.i}).html(buttonsText[currentButton].i);
-              }
-            });
+              // set text for current button
+              $(cB).text(buttonsText[currentButton].i);
 
-            // loop over non-current buttons
-            for (let b of nonCurrentButtons){
-
-              // proper format for jQuery selector
-              const nCB = "#" + b;
-
-              // set text for non-current buttons
-              $(nCB).text(buttonsText[b].i);
-
-              // non-current button event handlers
-              $(nCB).on({
+              // current button event handlers
+              $(cB).on({
                 click: () => {
-                  location.assign(buttonClickPaths[b]);
+                  location.assign(buttonClickPaths[currentButton]);
                 },
                 mouseenter: () => {
-                  $(nCB).css({"color":colors.a, "opacity":opacities.a })
-                  .html(buttonsText[b].a);
+                  $(cB).css({"color":colors.a }).html(buttonsText[currentButton].a);
                 },
                 mouseleave: () => {
-                  $(nCB).css({"color":colors.i, "opacity":opacities.i })
-                  .html(buttonsText[b].i);
+                  $(cB).css({"color":colors.i}).html(buttonsText[currentButton].i);
                 }
               });
-            };
-          } 
+
+              // loop over non-current buttons
+              for (let b of nonCurrentButtons){
+
+                // proper format for jQuery selector
+                const nCB = "#" + b;
+
+                // set text for non-current buttons
+                $(nCB).text(buttonsText[b].i);
+
+                // non-current button event handlers
+                $(nCB).on({
+                  click: () => {
+                    location.assign(buttonClickPaths[b]);
+                  },
+                  mouseenter: () => {
+                    $(nCB).css({"color":colors.a, "opacity":opacities.a }).html(buttonsText[b].a);
+                  },
+                  mouseleave: () => {
+                    $(nCB).css({"color":colors.i, "opacity":opacities.i }).html(buttonsText[b].i);
+                  }
+                });
+              };
+            } 
 
 
-          // ******************************************************************
-          // **********WHEN BROWSER IS POINTED TO MATHS.HTML*******************
-          // ******************************************************************
+            // ******************************************************************
+            // **********WHEN BROWSER IS POINTED TO MATHS.HTML*******************
+            // ******************************************************************
 
-          else if (location.pathname == '/home/andrew/Documents/
-          website2/maths/maths.html'){
+            else if (location.pathname == '/maths/maths.html'){
 
-            // set the current button to left button
-            const currentButton = "lbttn"; 
+              // set the current button to left button
+              const currentButton = "lbttn"; 
 
-            // proper format for jQuery selector
-            const cB = "#" + currentButton;
-
-            // set text for current button
-            $(cB).text(buttonsText[currentButton].a);
-
-            // duplicate the array buttonIds
-            const nonCurrentButtons = [];
-            for (i=0; i < buttonIds.length; i++){
-              nonCurrentButtons[i] = buttonIds[i]
-            };
-
-            // then remove the current button to obtain nonCurrentButtons
-            for (i=0; i < nonCurrentButtons.length; i++){
-              if ( nonCurrentButtons[i] == currentButton ) {
-              nonCurrentButtons.splice(i,1);
-              }
-            };
-
-            // loop over non-current buttons
-            for (let b of nonCurrentButtons){
-              
               // proper format for jQuery selector
-              const nCB = "#" + b;
+              const cB = "#" + currentButton;
 
-              // set text for non-current buttons
-              $(nCB).text(buttonsText[b].i);
+              // set text for current button
+              $(cB).text(buttonsText[currentButton].a);
 
-              // all button event handlers
-              $(nCB).on({
-                click: () => {
-                  location.assign(buttonClickPaths[b]);
-                },
-                mouseenter: () => {
-                  $(nCB).css({"color":colors.a, "opacity":opacities.a })
-                  .html(buttonsText[b].a);
-                  $(cB).css({"color":colors.i, "opacity":opacities.i });
-                },
-                mouseleave: () => {
-                  $(nCB).css({"color":colors.i, "opacity":opacities.i })
-                  .html(buttonsText[b].i);
-                  $(cB).css({"color":colors.a, "opacity":opacities.a })
-                  .html(buttonsText[currentButton].a);
+              // duplicate the array buttonIds
+              const nonCurrentButtons = [];
+              for (i=0; i < buttonIds.length; i++){
+                nonCurrentButtons[i] = buttonIds[i]
+              };
+
+              // then remove the current button to obtain nonCurrentButtons
+              for (i=0; i < nonCurrentButtons.length; i++){
+                if ( nonCurrentButtons[i] == currentButton ) {
+                nonCurrentButtons.splice(i,1);
                 }
-              });
-            };
-          } 
+              };
+
+              // loop over non-current buttons
+              for (let b of nonCurrentButtons){
+                
+                // proper format for jQuery selector
+                const nCB = "#" + b;
+
+                // set text for non-current buttons
+                $(nCB).text(buttonsText[b].i);
+
+                // all button event handlers
+                $(nCB).on({
+                  click: () => {
+                    location.assign(buttonClickPaths[b]);
+                  },
+                  mouseenter: () => {
+                    $(nCB).css({"color":colors.a, "opacity":opacities.a }).html(buttonsText[b].a);
+                    $(cB).css({"color":colors.i, "opacity":opacities.i });
+                  },
+                  mouseleave: () => {
+                    $(nCB).css({"color":colors.i, "opacity":opacities.i }).html(buttonsText[b].i);
+                    $(cB).css({"color":colors.a, "opacity":opacities.a })
+                    .html(buttonsText[currentButton].a);
+                  }
+                });
+              };
+            } 
 
 
-          // ******************************************************************
-          // **********WHEN BROWSER IS POINTED TO CYBER.HTML*******************
-          // ******************************************************************
+            // ******************************************************************
+            // **********WHEN BROWSER IS POINTED TO CYBER.HTML*******************
+            // ******************************************************************
 
-          else if (location.pathname == '/home/andrew/Documents/
-          website2/cyber/cyber.html'){
+            else if (location.pathname == '/cyber/cyber.html'){
 
-            // set the current button to right button
-            const currentButton = "rbttn"; 
+              // set the current button to right button
+              const currentButton = "rbttn"; 
 
-            // proper format for jQuery selector
-            const cB = "#" + currentButton;
-
-            // set text for current button
-            $(cB).text(buttonsText[currentButton].a);
-
-            // duplicate the array buttonIds
-            const nonCurrentButtons = [];
-            for (i=0; i < buttonIds.length; i++){
-              nonCurrentButtons[i] = buttonIds[i]
-            };
-
-            // then remove the current button to obtain nonCurrentButtons
-            for (i=0; i < nonCurrentButtons.length; i++){
-              if ( nonCurrentButtons[i] == currentButton ) {
-              nonCurrentButtons.splice(i,1);
-              }
-            };
-
-            // loop over non-current buttons
-            for (let b of nonCurrentButtons){
-              
               // proper format for jQuery selector
-              const nCB = "#" + b;
+              const cB = "#" + currentButton;
 
-              // set text for non-current buttons
-              $(nCB).text(buttonsText[b].i);
+              // set text for current button
+              $(cB).text(buttonsText[currentButton].a);
 
-              // all button event handlers
-              $(nCB).on({
-                click: () => {
-                  location.assign(buttonClickPaths[b]);
-                },
-                mouseenter: () => {
-                  $(nCB).css({"color":colors.a, "opacity":opacities.a })
-                  .html(buttonsText[b].a);
-                  $(cB).css({"color":colors.i, "opacity":opacities.i });
-                },
-                mouseleave: () => {
-                  $(nCB).css({"color":colors.i, "opacity":opacities.i })
-                  .html(buttonsText[b].i);
-                  $(cB).css({"color":colors.a, "opacity":opacities.a })
-                  .html(buttonsText[currentButton].a);
+              // duplicate the array buttonIds
+              const nonCurrentButtons = [];
+              for (i=0; i < buttonIds.length; i++){
+                nonCurrentButtons[i] = buttonIds[i]
+              };
+
+              // then remove the current button to obtain nonCurrentButtons
+              for (i=0; i < nonCurrentButtons.length; i++){
+                if ( nonCurrentButtons[i] == currentButton ) {
+                nonCurrentButtons.splice(i,1);
                 }
-              });
-            };
+              };
 
-          }
-        }); 
-          </code></pre>
+              // loop over non-current buttons
+              for (let b of nonCurrentButtons){
+                
+                // proper format for jQuery selector
+                const nCB = "#" + b;
+
+                // set text for non-current buttons
+                $(nCB).text(buttonsText[b].i);
+
+                // all button event handlers
+                $(nCB).on({
+                  click: () => {
+                    location.assign(buttonClickPaths[b]);
+                  },
+                  mouseenter: () => {
+                    $(nCB).css({"color":colors.a, "opacity":opacities.a }).html(buttonsText[b].a);
+                    $(cB).css({"color":colors.i, "opacity":opacities.i });
+                  },
+                  mouseleave: () => {
+                    $(nCB).css({"color":colors.i, "opacity":opacities.i }).html(buttonsText[b].i);
+                    $(cB).css({"color":colors.a, "opacity":opacities.a })
+                    .html(buttonsText[currentButton].a);
+                  }
+                });
+              };
+
+            }
+          }); 
+          </code></pre><!-- end buttonActions.js -->
 
           <!-- ******************************************** -->
           <!-- cyber.css (fragment) -->
           <!-- ******************************************** -->
           <pre class="codescreen" id="csTBscr2"><code class="css">
+          /* custom colors */
+          :root {
+            /* turquoise */
+            --turq: rgb(0, 204, 241);
+          }
 
-            :root {
-              /* turquoise */
-              --turq: rgb(0, 204, 241);
-            }
+          /* ******************************
+              BUTTON BAR AT THE TOP
+          ****************************** */ 
+          .buttonbar{
+            border: solid 2px black;
+            width:95%;
+            height: 20vw;
+            display: block;
+            margin-left: auto;
+            margin-right: auto
+          }
+          .buttonbar::after{
+            content: " ";
+            display: block;
+            width:95%;
+            margin-bottom: 20px;
+          }
 
-            .buttonbar{
-              border: solid 2px black;
-              width:95%;
-              height: 20vw;
-              display: block;
-              margin-left: auto;
-              margin-right: auto
-            }
+          /* top button */
+          .tbutton{
+            background: url("./images/big-vee-gray.jpg") center center;
+            opacity: 0.6;
+            background-size: 70%;
+            border: none;
+            color: white;
+            padding: 0px 0px 0px 0px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            margin: 0px 0px 0px 0px;
+            cursor: pointer;
+            font-size: 6vw;
+            width: 100%;
+            height: 15vw;
+            font-family: 'Lato';
+            font-weight: 400;
+          }
 
-            .tbutton{
-              background: url("./images/big-vee-gray.jpg") center center;
-              opacity: 0.6;
-              background-size: 70%;
-              border: none;
-              color: white;
-              padding: 0px 0px 0px 0px;
-              text-align: center;
-              text-decoration: none;
-              display: block;
-              margin: 0px 0px 0px 0px;
-              cursor: pointer;
-              font-size: 6vw;
-              width: 100%;
-              height: 15vw;
-            }
+          /* left button */
+          .lbutton{
+            background: url("./images/web-math-dark.png") center center;
+            opacity: 0.6;
+            background-size: 50%;
+            border: none;
+            color: white;
+            padding: 0px 0px 0px 0px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            margin: 0px 0px 0px 0px;
+            cursor: pointer;
+            font-size: 3.5vw;
+            width: 50%;
+            height: 5vw;
+            float: left;
+            font-family: 'Lato';
+            font-weight: 400;
+          }
 
-
-            .lbutton{
-              background: url("./images/web-math-dark.png") center center;
-              opacity: 0.6;
-              background-size: 50%;
-              border: none;
-              color: white;
-              padding: 0px 0px 0px 0px;
-              text-align: center;
-              text-decoration: none;
-              display: block;
-              margin: 0px 0px 0px 0px;
-              cursor: pointer;
-              font-size: 3.5vw;
-              width: 50%;
-              height: 5vw;
-              float: left;
-            }
-
-            .rbutton{
-              background: url("./images/hashcat-gray.png") top center;
-              opacity: 1;
-              background-size: 100%;
-              border: none;
-              color: var(--turq);
-              padding: 0px 0px 0px 0px;
-              text-align: center;
-              text-decoration: none;
-              display: block;
-              margin: 0px 0px 0px 0px;
-              cursor: pointer;
-              font-size: 3.5vw;
-              width: 50%;
-              height: 5vw;
-            }
-          </code></pre>
+          /* right button */
+          .rbutton{
+            background: url("./images/hashcat-gray.png") top center;
+            opacity: 1;
+            background-size: 100%;
+            border: none;
+            color: var(--turq);
+            padding: 0px 0px 0px 0px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            margin: 0px 0px 0px 0px;
+            cursor: pointer;
+            font-size: 3.5vw;
+            width: 50%;
+            height: 5vw;
+            font-family: 'Lato';
+            font-weight: 400;
+          }
+          </code></pre><!-- end cyber.css (fragment) -->
 
           <!-- ******************************************** -->
           <!-- cyber.html (fragment) -->
@@ -544,9 +533,7 @@
             &lt;/button&gt;
             
           &lt;/div&gt;
-
-  
-          </code></pre>
+          </code></pre><!-- end cyber.html (fragment) -->
 
           <!-- ******************************************** -->
           <!-- reveal box demo -->
@@ -568,7 +555,6 @@
           <!-- flipsAndPanels.js -->
           <!-- ******************************************** -->
           <pre class="codescreen" id="csRBscr0"><code class="javascript">
-
           const panels = [];
 
           const flips = [];
@@ -610,15 +596,22 @@
               $(jqp).toggle();
             });
           };
-
-
-          </code></pre>
+          </code></pre><!-- end flipsAndPanels.js -->
 
           <!-- ******************************************** -->
           <!-- cyber.css (fragment) -->
           <!-- ******************************************** -->
           <pre class="codescreen" id="csRBscr1"><code class="css">
-
+          /* ******************************
+                  REVEAL BOXES
+          ****************************** */ 
+          div.revealbox{
+            content: " ";
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+          }
+          /* panels and flips */
           div.panel, p.flip{
             line-height: 1.5;
             margin:auto;
@@ -628,7 +621,6 @@
             color:white;
             border-radius:3px;
           }
-
           div.panel{
             display:none;
             background:black;
@@ -636,56 +628,45 @@
             text-align: left;
             padding:12px;
           }
-
           p.flip{
             cursor:pointer;
             background:black;
             font-size: 24px;
           }
-
           div.panel p{
             text-indent: 2.5%;
           }
-
           div.panel a:link{
             color: white;
           }
-
           div.panel a:visited{
             color: white;
           }
-
           div.panel a:hover{
             color: var(--turq);
           }
-
-          div.revealbox{
-            content: " ";
-            display: block;
-            width: 100%;
-            margin-bottom: 20px;
-          }
-
+          /* revealbox date */
           div.rbdate{
             font-size: 1.5vw;
             text-align: right;
             padding-right: 10px;
           }
-          </code></pre>
+          </code></pre><!-- end cyber.css (fragment) -->
 
           <!-- ******************************************** -->
           <!-- cyber.html (fragment) -->
           <!-- ******************************************** -->
+
+          <!-- ID -->
           <pre class="codescreen" id="csRBscr2"><code class="html">
 
-            &lt;div id="shadow" class="revealbox"&gt;
-              &lt;p id="fshadow" class="flip"&gt;Understanding 
-                &lt;code class=il&gt;/etc/shadow&lt;/code&gt;&lt;/p&gt;
-              &lt;div id="pshadow" class="panel"&gt;
-              &lt;div class="rbdate"&gt;&lt;i&gt;8 December, 2021&lt;/i&gt;&lt;/div&gt;
-                &lt;!-- content goes here --&gt;
-              &lt;/div&gt;
+          &lt;div id="&lt;!-- ID --&gt;" class="revealbox"&gt;
+            &lt;p id="f&lt;!-- ID --&gt;" class="flip"&gt;&lt;!-- title goes here --&gt;&lt;/p&gt;
+            &lt;div id="p&lt;!-- ID --&gt;" class="panel"&gt;
+            &lt;div class="rbdate"&gt;&lt;i&gt;&lt;!-- date goes here --&gt;&lt;/i&gt;&lt;/div&gt;
+              &lt;!-- content goes here --&gt;
             &lt;/div&gt;
+          &lt;/div&gt;
 
           </code></pre>
 
@@ -786,6 +767,7 @@
           <!-- cyber.css (fragment) -->
           <!-- ******************************************** -->
           <pre class="codescreen" id="csCSscr1"><code class="css">
+          /* custom colors */
           :root {
             /* turquoise */
             --turq: rgb(0, 204, 241);
@@ -797,13 +779,16 @@
             --code-gray: #696969;
           }
 
+          /* ******************************
+                  CODE SCREENS
+          ****************************** */ 
           pre.codescreen{
-            border: 3px solid var( --code-gray );
+            border: 3px solid #696969;
             border-radius: 3px;
             margin: 0;
             clear: both;
           }
-
+          /* code screen buttons */
           .btn-group button {
             background-color: var( --st3-blck ); 
             border: none;
@@ -828,40 +813,36 @@
           &lt;html lang="en-US"&gt;
             &lt;head&gt;
               
-              &lt;!-- import highlight.js and the 
-              corresponding Monokai style sheet from a cdn --&gt;
-              &lt;link rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/gh/
-                highlightjs/cdn-release@11.4.0/build/styles/monokai-sublime.min.css"&gt;
-              &lt;script src="https://cdn.jsdelivr.net/gh/
-              highlightjs/cdn-release@11.4.0/build/highlight.min.js"&gt;&lt;/script&gt;
+              &lt;!-- highlight.js with Monokai theme --&gt;
+              &lt;script src="https://cdn.jsdelivr.net/gh/highlightjs
+              /cdn-release@11.4.0/build/highlight.min.js"&gt;&lt;/script&gt;
 
-              &lt;!-- highlight.js will automatically perform 
-              syntax highlighting on any code wrapped in &lt;pre&gt;&lt;code&gt; tags --&gt;
+              &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs
+              /cdn-release@11.4.0/build/styles/monokai-sublime.min.css"&gt;
+
               &lt;script&gt;hljs.highlightAll();&lt;/script&gt;
 
             &lt;/head&gt;
           &lt;body&gt;
+            &lt;!-- ******************************************** --&gt;
+            &lt;!-- code screeens nav --&gt;
+            &lt;!-- ******************************************** --&gt;
+            &lt;div id="csnavTB" class="btn-group"&gt;
+              &lt;button id="csTBbttn0"&gt;buttonProperties.js&lt;/button&gt;
+              &lt;button id="csTBbttn1"&gt;buttonActions.js&lt;/button&gt;
+              &lt;button id="csTBbttn2"&gt;cyber.css&lt;/button&gt;
+              &lt;button id="csTBbttn3"&gt;cyber.html&lt;/button&gt;
+            &lt;/div&gt;
 
 
-          &lt;!-- ******************************************** --&gt;
-          &lt;!-- top bar code screeens nav --&gt;
-          &lt;!-- ******************************************** --&gt;
-          &lt;div id="csnavTB" class="btn-group"&gt;
-            &lt;button id="csTBbttn0"&gt;buttonProperties.js&lt;/button&gt;
-            &lt;button id="csTBbttn1"&gt;buttonActions.js&lt;/button&gt;
-            &lt;button id="csTBbttn2"&gt;cyber.css&lt;/button&gt;
-            &lt;button id="csTBbttn3"&gt;cyber.html&lt;/button&gt;
-          &lt;/div&gt;
+            &lt;!-- ******************************************** --&gt;
+            &lt;!-- jsToHighlight.js --&gt;
+            &lt;!-- ******************************************** --&gt;
+            &lt;pre class="codescreen" id="csTBscr0"&gt;&lt;code class="javascript"&gt;
+              &lt;!-- javascript to be displayed with syntax highlighting --&gt;
+            &lt;/code&gt;&lt;/pre&gt;&lt;!-- end buttonProperties.js --&gt;
 
-          &lt;!-- ******************************************** --&gt;
-          &lt;!-- buttonProperties.js --&gt;
-          &lt;!-- ******************************************** --&gt;
-          &lt;pre class="codescreen" id="csTBscr0"&gt;&lt;code class="javascript"&gt;
-            &lt;!-- JavaScript to be displayed with syntax highlighting --&gt;
-          &lt;/code&gt;&lt;/pre&gt;
-
-          </code></pre> <!-- real one -->
+          </code></pre> <!-- end cyber.html (fragment) -->
 
 
     </div> <!-- end panel -->
@@ -896,7 +877,7 @@
 </pre>
 
       	</div>
-      	<h3 style="text-indent:0; text-decoration: underline">Each entry consists of nine fields separated by the colon (:) as a delimiter:</h3>
+      	<h3 style="text-indent:0">Each entry consists of nine fields separated by the colon (:) as a delimiter:</h3>
       	<ol>
       		<li>The first field specifies the username:
       			<!-- <img style="margin-top: 10px; margin-bottom: 10px" src="./images/shadow3.png" alt="the first field of a single entry of /etc/shadow" class="terminal"> -->
@@ -948,7 +929,7 @@ $6$lqp1kwZ2pD2x0z35$3I2n...KbyS.SXxVOllcrFHLYFJX1
     <!-- LINUX FILE PERMISSIONS -->
     <!-- ******************************************** -->
     <div id="perm" class="revealbox">
-      <p id="fperm" class="flip">Linux file permissions</p>
+      <p id="fperm" class="flip">Linux File Permissions</p>
       <div id="pperm" class="panel">
       <div class="rbdate"><i>2 November, 2021</i></div>
         <img src="./images/linux-permissions.png" alt="the basic format of a linux permission string" class="center">
