@@ -10,7 +10,7 @@ $("#mnbttn2").on({
   }
 });
 
-const numMNBttns = $(".mininav").children.length;
+const numMNBttns = $(".mininav").children().length;
 
 const mNBttns = [];
 

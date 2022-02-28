@@ -6,18 +6,22 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" type="text/css" href="cyber.css">
+
+    <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <script src='../js/buttonProperties.js'></script>
 
-    <!-- import from cdn highlight.js and the corresponding Monokai style sheet -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/monokai-sublime.min.css">
-    
+    <!-- highlight.js with Monokai theme -->
     <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"></script>
 
-    <!-- get the lato font from google -->
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/monokai-sublime.min.css">
 
     <script>hljs.highlightAll();</script>
+
+    <!-- get the lato font from google -->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'> -->
+
 
   </head>
 <body>
@@ -49,9 +53,6 @@
       <button class="tooltip" id="mnbttn1">Home
         <span class="tooltiptext">andrewherring.github.io</span>
       </button>
-      <!-- <button class="tooltip" id="mnbttn2">my thesis
-        <span class="tooltiptext">genus-bounds-for-some-dynatomic-modular-curves.pdf</span>
-      </button> -->
     </div>
 <!-- <script>
   $("#mnbttn1").on({
@@ -193,14 +194,14 @@
 
           <ul>
             <li><code class="il"><a href="https://andrewherring.github.io">andrewherring.github.io</a></code></li>
-            <li><code class="il"><a href="https://andrewherring.github.io/maths.html">andrewherring.github.io/maths.html</a></code></li>
-            <li><code class="il"><a href="https://andrewherring.github.io/cyber.html">andrewherring.github.io/cyber.html</a></code></li>
+            <li><code class="il"><a href="https://andrewherring.github.io/maths.html">andrewherring.github.io/maths/maths.html</a></code></li>
+            <li><code class="il"><a href="https://andrewherring.github.io/cyber.html">andrewherring.github.io/cyber/cyber.html</a></code></li>
           </ul>
 
           Each of the top buttons has the same response to a click
           regardless of which of the above three pages the browser is pointed to.</p>
 
-          <p>The same is not true for the mouse enter and mouse leave events. For example, the response to a mouse entering the "CYBER SECURITY" button depends on whether the browser is pointed to <code class="il"><a href="https://andrewherring.github.io/maths.html">./maths.html</a></code> or <code class="il"><a href="https://andrewherring.github.io/cyber.html">./cyber.html</a></code>. I could have written a separate <code class="il">JavaScript</code> file for each of the three main pages, but the mathematician in me prefers maximum generality and robustness. With the current code, it's easy to replace certain parameters in a single file (<code class="il">buttonProperties.js</code>) for future development projects.</p>
+          <p>The same is not true for the mouse enter and mouse leave events. For example, the response to a mouse entering the "CYBER SECURITY" button depends on whether the browser is pointed to <code class="il"><a href="https://andrewherring.github.io/maths/maths.html">./maths.html</a></code> or <code class="il"><a href="https://andrewherring.github.io/cyber/cyber.html">./cyber.html</a></code>. I could have written a separate <code class="il">JavaScript</code> file for each of the three main pages, but the mathematician in me prefers maximum generality and robustness. With the current code, it's easy to replace certain parameters in a single file (<code class="il">buttonProperties.js</code>) for future development projects.</p>
 
 
           <!-- ******************************************** -->
