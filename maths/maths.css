@@ -28,6 +28,11 @@ p{
   text-indent: 2.5%;
 }
 
+/* add space between li's */
+li + li {
+  margin-top: 5px;
+}
+
 /* ******************************
     BUTTON BAR AT THE TOP
 ****************************** */ 
@@ -214,7 +219,7 @@ div.revealbox{
 }
 /* panels and flips */
 div.panel, p.flip{
-  line-height: 1.5;
+  line-height: 1.4;
   margin:auto;
   padding:5px;
   text-align:center;

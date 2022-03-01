@@ -27,6 +27,11 @@ a:hover{
   color: var(--turq);
 }
 
+/* add space between li's */
+li + li {
+  margin-top: 5px;
+}
+
 /* paragraph indent */
 p{
   text-indent: 2.5%
