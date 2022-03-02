@@ -1,6 +1,0 @@
-<pre><font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~</b></font>$ ls -l /etc/ | grep &quot;shadow&quot;
--rw-r-----  1 root <font color="#CC0000"><b>shadow</b></font>    914 Dec 31 15:06 g<font color="#CC0000"><b>shadow</b></font>
--rw-r-----  1 root <font color="#CC0000"><b>shadow</b></font>    904 Dec 15 10:57 g<font color="#CC0000"><b>shadow</b></font>-
--rw-r-----  1 root <font color="#CC0000"><b>shadow</b></font>   1699 Dec 31 18:01 <font color="#CC0000"><b>shadow</b></font>
--rw-r-----  1 root <font color="#CC0000"><b>shadow</b></font>   1462 May  3  2021 <font color="#CC0000"><b>shadow</b></font>-
-<font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~</b></font>$ </pre>

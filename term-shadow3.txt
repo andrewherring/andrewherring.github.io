@@ -1,4 +1,0 @@
-<pre><font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~</b></font>$ sudo cat /etc/shadow | grep &quot;randy&quot; | cut -d &quot;:&quot; -f 1
-randy
-<font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~</b></font>$ 
-</pre>
