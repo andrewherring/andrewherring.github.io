@@ -18,6 +18,11 @@
 
     <script>hljs.highlightAll();</script>
 
+    <!-- mathjax -->
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
   </head>
 <body>
 
@@ -58,7 +63,8 @@
           <ul>
             <li><a href="https://overthewire.org/wargames/bandit/">Bandit:</a> all levels;</li>
             <li><a href="https://overthewire.org/wargames/krypton/">Krypton:</a> up to level 3;</li>
-            <li><a href="https://overthewire.org/wargames/natas/">Natas:</a> up to level 10;</li>
+            <li><a href="https://overthewire.org/wargames/natas/">Natas:</a> up to level 15;</li>
+            <li><a href="https://overthewire.org/wargames/leviathan/">Leviathan:</a>up to level 2;</li>
           </ul>
         </li>
         <li><a href="https://tryhackme.com"><i>TryHackMe:</i></a> I am 92&percnt; complete with the "pre-security" learning path;</li>
@@ -78,6 +84,7 @@
     <h1 class="sectionheading">What Do I Know?</h1>
 
     <p style="text-indent: 0">The posts in this section detail a few things I have learned about computers and cyber security. To read a post, click on the black rectangle with the post's title.</p>
+
 
     <!-- ******************************************** -->
     <!-- signing VMware Modules -->
@@ -867,11 +874,11 @@
 
         </div>
       	<p>We see above that <code class=il>/etc/shadow</code> has permission level <code class=il>640</code> and is owned by <code class=il>root</code>, so that only sudoers have read/write permissions.</p>
-      	<p>It is worth understanding how an entry of <code class=il>/etc/shadow</code> is formatted since quite a bit of useful information can be extracted from a single such entry. Here is an entry of <code class=il>/etc/shadow</code> for the user <code class=il>randy</code>. (Actually the entry has been truncated for readability).</p>
+      	<p>It is worth understanding how an entry of <code class=il>/etc/shadow</code> is formatted since quite a bit of useful information can be extracted from a single such entry. Here is an entry of <code class=il>/etc/shadow</code> for the user <code class=il>dummy</code>. (Actually the entry has been truncated for readability).</p>
       	<!-- <img src="./images/shadow2.png" alt="a (truncated) entry of /etc/shadow" class="terminal"> -->
       	<div class="container">
-      		<pre><font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~</b></font>$ sudo cat /etc/shadow | grep &quot;randy&quot;
-<font color="#CC0000"><b>randy</b></font>:$6$lqp1...:18992:0:99999:7:::
+      		<pre><font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~</b></font>$ sudo cat /etc/shadow | grep &quot;dummy&quot;
+<font color="#CC0000"><b>dummy</b></font>:$6$lqp1...:18992:0:99999:7:::
 <font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~</b></font>$ 
 </pre>
 
@@ -882,19 +889,19 @@
       			<!-- <img style="margin-top: 10px; margin-bottom: 10px" src="./images/shadow3.png" alt="the first field of a single entry of /etc/shadow" class="terminal"> -->
 
       			<div class="container">
-      				<pre><font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~</b></font>$ sudo cat /etc/shadow | grep &quot;randy&quot; | cut -d &quot;:&quot; -f 1
-randy
+      				<pre><font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~</b></font>$ sudo cat /etc/shadow | grep &quot;dummy&quot; | cut -d &quot;:&quot; -f 1
+dummy
 <font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~</b></font>$ 
 </pre>
 
       			</div>
-      		(For this example, the username is <code class=il>randy</code>.)
+      		(For this example, the username is <code class=il>dummy</code>.)
       		</li><br>
       		<li>The second field contains hash information about the plain text password for the user in question:
       			<!-- <img style="margin-top: 10px; margin-bottom: 10px" src="./images/shadow4.png" alt="the second field of a single entry of /etc/shadow" class="terminal"> -->
 
       			<div class="container">
-      				<pre><font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~</b></font>$ sudo cat /etc/shadow | grep &quot;randy&quot; | cut -d &quot;:&quot; -f 2
+      				<pre><font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~</b></font>$ sudo cat /etc/shadow | grep &quot;dummy&quot; | cut -d &quot;:&quot; -f 2
 $6$lqp1kwZ2pD2x0z35$3I2n...KbyS.SXxVOllcrFHLYFJX1
 <font color="#4E66DC"><b>andrew</b></font>:<font color="#00CCF1"><b>~</b></font>$ 
 </pre>

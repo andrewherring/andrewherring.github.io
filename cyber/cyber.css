@@ -245,6 +245,15 @@ div.panel a:visited{
 div.panel a:hover{
   color: var(--turq);
 }
+/* a horizontal rule */
+div.panel div.rule{
+	display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 0.5px white;
+}
 /* revealbox date */
 div.rbdate{
   font-size: 1.5vw;
@@ -256,6 +265,27 @@ code.il {
 	background:#696969; 
   padding:1px;
   border-radius: 3px;	
+}
+/* centered section title for revealboxes */
+h3.rbsection{
+  text-align: center;
+}
+/* a definition/emphasis tag*/
+b.def{
+  color: var(--turq);
+}
+
+div.container{
+  text-align: center; /* don't touch */
+}
+div.container div.thm{
+  padding:5px;
+  border: 1px solid #696969;
+  border-radius: 3px;
+  /*background: #696969;*/
+  display:inline-block; /* don't touch */
+  text-align: left; /* don't touch */
+  /*height: auto;*/
 }
 
 /* ******************************
